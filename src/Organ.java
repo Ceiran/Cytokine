@@ -1,11 +1,10 @@
 public abstract class Organ {
-    private int priority, currentCapacity;
-    private final int maxCapacity;
-    private double currentHealth, resistance;
-    private final double maxHealth;
+    private int currentCapacity, currentHealth, maxHealth, maxCapacity;
+    private final int priority;
+    private double resistance;
     private String name;
 
-    public Organ(double health, int capacity, double resistance, int priority, String name) {
+    public Organ(int health, int capacity, double resistance, int priority, String name) {
         this.priority = priority;
         this.currentHealth = health;
         this.maxHealth = health;
@@ -19,7 +18,7 @@ public abstract class Organ {
     public int getCurrentCapacity() { return currentCapacity; }
     public int getPriority() { return priority; }
     public double getResistance() { return resistance; }
-    public boolean getPlayerControl() { return currentHealth > 0; }
+    public double getPlayerControl() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
     public String getName() { return name; }
 
     public boolean changeCapacity(int delta) {

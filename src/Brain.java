@@ -1,5 +1,5 @@
-public class Heart extends Organ {
-    public Heart() { super(35000, 1150, 0.4, 0, "Heart"); }
+public class Brain extends Organ {
+    public Brain() { super(30000, 1450, 0.1, 0, "Brain"); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 
