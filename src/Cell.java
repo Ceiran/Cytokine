@@ -3,6 +3,7 @@ public abstract class Cell {
     private double accuracy;
     private String type;
 
+    // The instance variable type defines whether the Cell is an immuneCell or Pathogen.
     public Cell(int health, int maxHealth, int damage, int attackSpeed, int infectionShield, double accuracy, String type) {
         this.health = health;
         this.maxHealth = maxHealth;
@@ -21,7 +22,7 @@ public abstract class Cell {
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
 
-    public double getPercentage() { return Math.round(((double)health / maxHealth) * 100.0) / 100.0; }
+    public double calcPercentage() { return Math.round(((double)health / maxHealth) * 100.0) / 100.0; }
 
     /* Calculates total health of a cell after a change, delta, is applied.
        Flat is true if delta is a flat rate and false if it is a percent change.
@@ -38,4 +39,6 @@ public abstract class Cell {
             health *= (1 + delta);
         }
     }
+
+    public abstract void attack(Cell target);
 }
