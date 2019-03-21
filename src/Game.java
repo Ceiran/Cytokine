@@ -12,8 +12,10 @@ public class Game {
                 break;
             case 1:
                 mainBody.changeGlobalHP(1000000);
+                break;
             case 2:
                 mainBody.changeGlobalHP(800000);
+                break;
             default:
                 throw new IllegalArgumentException("Game ID is unknown.");
         }
