@@ -1,15 +1,14 @@
 public abstract class Cell {
-    private int health, maxHealth, damage, attackSpeed, infectionShield;
+    private int health, maxHealth, damage, attackSpeed;
     private double accuracy;
     private String type;
 
     // The instance variable type defines whether the Cell is an immuneCell or Pathogen.
-    public Cell(int health, int maxHealth, int damage, int attackSpeed, int infectionShield, double accuracy, String type) {
+    public Cell(int health, int maxHealth, int damage, int attackSpeed, double accuracy, String type) {
         this.health = health;
         this.maxHealth = maxHealth;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
-        this.infectionShield = infectionShield;
         this.accuracy = accuracy;
         this.type = type;
     }
@@ -18,7 +17,6 @@ public abstract class Cell {
     public int getMaxHealth() { return maxHealth; }
     public int getDamage() { return damage; }
     public int getAttackSpeed() { return attackSpeed; }
-    public int getInfectionShield() { return infectionShield; }
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
 
