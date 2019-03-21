@@ -1,6 +1,6 @@
-public abstract class VirginTCell extends ImmuneCell {
-    public VirginTCell(int health, int maxHealth, int damage, int attackSpeed, double accuracy, int infectionShield, String name) {
-        super(health, maxHealth, damage, attackSpeed, accuracy, infectionShield, "VirginTCell");
+public class VirginTCell extends ImmuneCell {
+    public VirginTCell() {
+        super(95, 95, 30, 1, 0.85, 100, "VirginTCell");
     }
 
     public void attack(Cell target) {

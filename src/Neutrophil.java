@@ -1,6 +1,6 @@
 public class Neutrophil extends ImmuneCell {
-    public Neutrophil(int health, int maxHealth, int damage, int attackSpeed, double accuracy, int infectionShield, String name) {
-        super(health, maxHealth, damage, attackSpeed, accuracy, infectionShield, "Neutrophil");
+    public Neutrophil() {
+        super(95, 95, 110, 1, 0.95, 20, "Neutrophil");
     }
 
     public void attack(Cell target) {
