@@ -4,6 +4,6 @@ public class Macrophage extends ImmuneCell {
     }
 
     public void attack(Cell target) {
-
+        target.changeHealth(-getDamage(), true);
     }
 }

@@ -4,6 +4,6 @@ public class VirginTCell extends ImmuneCell {
     }
 
     public void attack(Cell target) {
-
+        target.changeHealth(-getDamage(), true);
     }
 }
