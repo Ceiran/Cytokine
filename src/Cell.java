@@ -27,14 +27,14 @@ public abstract class Cell {
      */
     public void changeHealth(double delta, boolean flat) {
         if (flat) {
-            if ((health += delta) < 0) {
-                health = 0;
-            } else if ((health += delta) > maxHealth) {
-                health = maxHealth;
-            } else
-                health += delta;
+            health += delta;
         } else {
             health *= (1 + delta);
+        }
+        if (health < 0) {
+            health = 0;
+        } else if (health > maxHealth) {
+            health = maxHealth;
         }
     }
 
