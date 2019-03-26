@@ -6,7 +6,7 @@ public class ATPSynthase extends ImmuneCell {
         atpProduction = 2;
     }
 
-    public int getAtpProductionRate() { return atpProduction; }
+    public int getAtpProduction() { return atpProduction; }
 
     public void attack(Cell target) {
         // ATPSynthase Cells cannot attack.
