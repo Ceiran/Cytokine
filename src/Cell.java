@@ -24,6 +24,8 @@ public abstract class Cell {
 
     /* Calculates total health of a cell after a change, delta, is applied.
        Flat is true if delta is a flat rate and false if it is a percent change.
+       Delta should indicate a percent increase with a positive value.
+       Delta should indicate a percent decrease with a negative value.
      */
     public void changeHealth(double delta, boolean flat) {
         if (flat) {
@@ -35,6 +37,46 @@ public abstract class Cell {
             health = 0;
         } else if (health > maxHealth) {
             health = maxHealth;
+        }
+    }
+
+    public void changeMaxHealth(double delta, boolean flat) {
+        if (flat) {
+            maxHealth += delta;
+        } else {
+            maxHealth *= (1 + delta);
+        }
+        if (maxHealth < 0) {
+            maxHealth = 0;
+        }
+    }
+
+    public void changeDamage(double delta, boolean flat) {
+        if (flat) {
+            damage += delta;
+        } else {
+            damage *= (1 + delta);
+        }
+        if (damage < 0) {
+            damage = 0;
+        }
+    }
+
+    public void changeAttackSpeed(double delta, boolean flat) {
+        if (flat) {
+            attackSpeed += delta;
+        } else {
+            attackSpeed *= (1 + delta);
+        }
+        if (attackSpeed < 0) {
+            attackSpeed = 0;
+        }
+    }
+
+    public void changeAccuracy(double delta){
+        accuracy += delta;
+        if (accuracy < 0) {
+            accuracy = 0;
         }
     }
 
