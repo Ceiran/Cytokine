@@ -1,4 +1,4 @@
-public abstract class ImmuneCell extends Cell{
+public abstract class ImmuneCell extends Cell {
     private int infectionShield;
     private String name;
 
