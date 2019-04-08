@@ -62,7 +62,7 @@ public abstract class Cell {
         }
     }
 
-    public void changeAttackSpeed(double delta, boolean flat) {
+    public void changeRecharge(double delta, boolean flat) {
         if (flat) {
             recharge += delta;
         } else {

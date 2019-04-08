@@ -6,4 +6,9 @@ public class CytotoxicTCell extends ImmuneCell {
     public void attack(Cell target) {
         target.changeHealth(-getDamage(), true);
     }
+
+    // Kills an ally cell that has been infected.
+    public void purge(ImmuneCell target) {
+
+    }
 }
