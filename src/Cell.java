@@ -46,9 +46,7 @@ public abstract class Cell {
         } else {
             maxHealth *= (1 + delta);
         }
-        if (maxHealth < 0) {
-            maxHealth = 0;
-        }
+        if (maxHealth < 0) { maxHealth = 0; }
     }
 
     public void changeDamage(double delta, boolean flat) {
@@ -57,9 +55,7 @@ public abstract class Cell {
         } else {
             damage *= (1 + delta);
         }
-        if (damage < 0) {
-            damage = 0;
-        }
+        if (damage < 0) { damage = 0; }
     }
 
     public void changeRecharge(double delta, boolean flat) {
@@ -68,16 +64,12 @@ public abstract class Cell {
         } else {
             recharge *= (1 + delta);
         }
-        if (recharge < 0) {
-            recharge = 0;
-        }
+        if (recharge < 0) { recharge = 0; }
     }
 
     public void changeAccuracy(double delta){
         accuracy += delta;
-        if (accuracy < 0) {
-            accuracy = 0;
-        }
+        if (accuracy < 0) { accuracy = 0; }
     }
 
     public abstract void attack(Cell target);

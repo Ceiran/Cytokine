@@ -3,7 +3,5 @@ public class Neutrophil extends ImmuneCell {
         super(95, 95, 110, 1, 0.95, 20, "Neutrophil");
     }
 
-    public void attack(Cell target) {
-        target.changeHealth(-getDamage(), true);
-    }
+    public void attack(Cell target) { target.changeHealth(-getDamage(), true); }
 }
