@@ -10,7 +10,7 @@ public class HelperTCell extends ImmuneCell {
     }
 
     // Heals ImmuneCells given that it is not itself or another T-Cell.
-    public void heal(ImmuneCell target){
+    public void heal(ImmuneCell target) {
 
     }
 }
