@@ -40,6 +40,7 @@ public abstract class Cell {
         }
     }
 
+    // When max health is increased, health is also increased proportionally.
     public void changeMaxHealth(double delta, boolean flat) {
         if (flat) {
             maxHealth += delta;
@@ -47,6 +48,8 @@ public abstract class Cell {
             maxHealth *= (1 + delta);
         }
         if (maxHealth < 0) { maxHealth = 0; }
+        if (delta > 0) { changeHealth(delta, flat); }
+        changeHealth(0, false);
     }
 
     public void changeDamage(double delta, boolean flat) {
