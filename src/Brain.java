@@ -6,7 +6,7 @@ public class Brain extends Organ {
     }
 
     public void applyDamage(Pathogen cell) {
-        if (getPlayerControl() < 0) { return; }
+        if (getPercentHealth() < 0) { return; }
 
     }
 }

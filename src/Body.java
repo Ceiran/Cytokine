@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Body {
     private Organ[] organList;
     private int globalHP;
+    private List<ImmuneCell> reserves;
 
     public Body() {
         organList = new Organ[6];
@@ -11,10 +15,12 @@ public class Body {
         organList[4] = new Liver();
         organList[5] = new Kidneys();
         globalHP = 0;
+        reserves = new ArrayList<>();
     }
 
     public int getGlobalHP() { return globalHP; }
     public Organ[] getOrganList() { return organList; }
+    public List<ImmuneCell> getReserves() { return reserves; }
 
     public boolean changeGlobalHP(int delta) {
         globalHP += delta;
@@ -23,5 +29,16 @@ public class Body {
             return false;
         }
         return globalHP > 0;
+    }
+
+    public void addReserveCell(ImmuneCell cell) { reserves.add(cell); }
+
+    public void runCombat() {
+        for (Organ organ : organList) {
+            for (ImmuneCell immune : organ.getCellList()) {
+                immune.attack(organ.getPathogenList().get((int)(Math.random() * organ.getPathogenList().size()));
+
+            }
+        }
     }
 }
