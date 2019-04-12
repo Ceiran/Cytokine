@@ -1,5 +1,6 @@
 public class HelperTCell extends ImmuneCell {
     private double healRate;
+    
     public HelperTCell(double healRate) {
         super(95, 95, 30, 1, 0.85, 100, "HelperTCell");
         this.healRate = healRate;
