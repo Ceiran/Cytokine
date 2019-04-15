@@ -6,7 +6,7 @@ public class Kidneys extends Organ {
     }
 
     public void applyDamage(Pathogen cell) {
-        if (getPercentHealth() < 0) { return; }
+        if (getOrganPercentHealth() < 0) { return; }
 
     }
 }

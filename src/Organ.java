@@ -22,7 +22,7 @@ public abstract class Organ {
     public int getCurrentCapacity() { return currentCapacity; }
     public int getPriority() { return priority; }
     public double getResistance() { return resistance; }
-    public double getPercentHealth() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
+    public double getOrganPercentHealth() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
     public String getName() { return name; }
     public List<ImmuneCell> getCellList() { return cellList; }
     public List<Pathogen> getPathogenList() { return pathogenList; }
@@ -49,6 +49,8 @@ public abstract class Organ {
 
     }
 
+    // Applies system-wide debuffs to player once an organ fails.
     public abstract void applyCollapsePenalties(ImmuneSystem system);
+    // Applies damage done by pathogens to organ.
     public abstract void applyDamage(Pathogen cell);
 }

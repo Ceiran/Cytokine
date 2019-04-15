@@ -3,7 +3,8 @@ import java.util.List;
 
 public class Body {
     private Organ[] organList;
-    private int globalHP;
+    private int globalHP, maxGlobalHP;
+    // Contains all cells currently not deployed in the field. Cells are placed here when first created.
     private List<ImmuneCell> reserves;
 
     public Body() {
@@ -15,6 +16,7 @@ public class Body {
         organList[4] = new Liver();
         organList[5] = new Kidneys();
         globalHP = 0;
+        maxGlobalHP = 0;
         reserves = new ArrayList<>();
     }
 
@@ -22,13 +24,29 @@ public class Body {
     public Organ[] getOrganList() { return organList; }
     public List<ImmuneCell> getReserves() { return reserves; }
 
-    public boolean changeGlobalHP(int delta) {
-        globalHP += delta;
+    // Return false if patient is dead.
+    public boolean changeGlobalHP(int delta, boolean flat) {
+        if (flat) {
+            globalHP += delta;
+        } else {
+            globalHP *= 1 + delta;
+        }
         if (globalHP < 0) {
             globalHP = 0;
             return false;
         }
         return globalHP > 0;
+    }
+
+    public void changeMaxGlobalHP(int delta, boolean flat) {
+        if (flat) {
+            maxGlobalHP += delta;
+            if (delta > 0) { globalHP += delta; }
+        } else {
+            maxGlobalHP *= 1 + delta;
+            if (delta > 0) { globalHP *= 1 + delta; }
+        }
+        if (globalHP > maxGlobalHP) { globalHP = maxGlobalHP; }
     }
 
     public void addReserveCell(ImmuneCell cell) { reserves.add(cell); }
