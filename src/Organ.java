@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
 public abstract class Organ {
-    private int currentCapacity, currentHealth, maxHealth, maxCapacity;
+    // maxCapacity dictates amount of cells that can be deployed at one time on the organ.
+    private int currentCapacity, maxCapacity, currentHealth, maxHealth;
+    // Determines pathogen progression path (lowest -> highest).
     private final int priority;
+    // Determines damage reduction from pathogens.
     private double resistance;
     private String name;
     private List<ImmuneCell> cellList = new ArrayList<>();
