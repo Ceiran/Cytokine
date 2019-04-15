@@ -6,7 +6,7 @@ public class Stomach extends Organ {
     }
 
     public void applyDamage(Pathogen cell) {
-        if (getPlayerControl() < 0) { return; }
+        if (getOrganPercentHealth() < 0) { return; }
 
     }
 }

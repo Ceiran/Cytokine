@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+
 public abstract class Organ {
-    private int currentCapacity, currentHealth, maxHealth, maxCapacity;
+    // maxCapacity dictates amount of cells that can be deployed at one time on the organ.
+    private int currentCapacity, maxCapacity, currentHealth, maxHealth;
+    // Determines pathogen progression path (lowest -> highest).
     private final int priority;
+    // Determines damage reduction from pathogens.
     private double resistance;
     private String name;
+    private List<ImmuneCell> cellList = new ArrayList<>();
+    private List<Pathogen> pathogenList = new ArrayList<>();
 
     public Organ(int health, int capacity, double resistance, int priority, String name) {
         this.priority = priority;
@@ -18,8 +25,10 @@ public abstract class Organ {
     public int getCurrentCapacity() { return currentCapacity; }
     public int getPriority() { return priority; }
     public double getResistance() { return resistance; }
-    public double getPlayerControl() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
+    public double getOrganPercentHealth() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
     public String getName() { return name; }
+    public List<ImmuneCell> getCellList() { return cellList; }
+    public List<Pathogen> getPathogenList() { return pathogenList; }
 
     public boolean changeCapacity(int delta) {
         if (delta < 0 && currentCapacity == 0 || delta > 0 && currentCapacity == maxCapacity) { return false; }
@@ -39,6 +48,12 @@ public abstract class Organ {
         if (resistance > 1) { resistance = 1; }
     }
 
+    public void runCombat() {
+
+    }
+
+    // Applies system-wide debuffs to player once an organ fails.
     public abstract void applyCollapsePenalties(ImmuneSystem system);
+    // Applies damage done by pathogens to organ.
     public abstract void applyDamage(Pathogen cell);
 }
