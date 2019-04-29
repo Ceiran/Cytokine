@@ -23,8 +23,10 @@ public class Game {
         }
     }
 
-    public void runTurn() {
-
+    public boolean runTurn() {
+        System.out.printf("%02d:%02d:%02d", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
+        mainBody.runCombat();
+        return mainBody.changeGlobalHP(-50000, true);
     }
 }

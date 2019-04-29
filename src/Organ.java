@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Organ {
     // maxCapacity dictates amount of cells that can be deployed at one time on the organ.
@@ -35,6 +36,7 @@ public abstract class Organ {
         currentCapacity += delta;
         return true;
     }
+
     public void changeHealth(double delta) {
         currentHealth += delta;
         if (currentHealth < 0) {
@@ -43,13 +45,10 @@ public abstract class Organ {
             currentHealth = maxHealth;
         }
     }
+
     public void changeResistance(double delta) {
         resistance += delta;
         if (resistance > 1) { resistance = 1; }
-    }
-
-    public void runCombat() {
-
     }
 
     // Applies system-wide debuffs to player once an organ fails.
