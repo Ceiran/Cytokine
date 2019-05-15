@@ -17,4 +17,23 @@ public abstract class Upgrades {
     public int getATPConsumption() { return ATPConsumption; }
     public double getAttackSpeed() { return attackSpeed; }
 
+    public void healthIncrease(){
+        health++;
+    }
+    public void damageIncrease(){
+        damage++;
+    }
+    public void infectionShieldIncrease(){
+        infectionShield++;
+    }
+    public void accuracyIncrease(){
+        accuracy++;
+    }
+    public void ATPConsumptionIncrease(){
+        ATPConsumption++;
+    }
+    public void attackSpeedIncrease(){
+        attackSpeed++;
+    }
+
 }
