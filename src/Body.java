@@ -38,15 +38,18 @@ public class Body {
         return globalHP > 0;
     }
 
-    public void changeMaxGlobalHP(int delta, boolean flat) {
+    // Return false if patient is dead.
+    public boolean changeMaxGlobalHP(int delta, boolean flat) {
         if (flat) {
             maxGlobalHP += delta;
+            if (maxGlobalHP < 0) { maxGlobalHP = 0; }
             if (delta > 0) { globalHP += delta; }
         } else {
             maxGlobalHP *= 1 + delta;
             if (delta > 0) { globalHP *= 1 + delta; }
         }
         if (globalHP > maxGlobalHP) { globalHP = maxGlobalHP; }
+        return changeGlobalHP(0, true);
     }
 
     public void addReserveCell(ImmuneCell cell) { reserves.add(cell); }
@@ -54,8 +57,16 @@ public class Body {
     public void runCombat() {
         for (Organ organ : organList) {
             for (ImmuneCell immune : organ.getCellList()) {
-                immune.attack(organ.getPathogenList().get((int)(Math.random() * organ.getPathogenList().size()));
-
+                immune.attack(organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())));
+            }
+            if (organ.getCellList().size() > organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getCellList().size() - organ.getPathogenList().size(); i++) {
+                    organ.getCellList().get((int) (Math.random() * organ.getCellList().size())).healOrgan(organ);
+                }
+            } else if (organ.getCellList().size() < organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getPathogenList().size() - organ.getCellList().size(); i++) {
+                    organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())).damageOrgan(organ);
+                }
             }
         }
     }
