@@ -1,13 +1,14 @@
 public class CommonCold extends Pathogen {
-    private double healRate;
+    private double duplicationSPD, infectionDMG;
+
 
     public CommonCold(double healRate){
-        super(100,1000,40,1,0.5,"CommonCold");
-        this.healRate = healRate;
-
+        super(60,60,30,1,0.6,"CommonCold");
+        this.duplicationSPD = duplicationSPD;
+        this.infectionDMG = infectionDMG;
     }
 
-    public void attack(Cell target) {target.changeHealth(-getDamage(), true); }
-
+    public void attackCell(Cell target) {target.changeHealth(-getDamage(), true); }
+    public void attackOrgan(Organ target){target.changeHealth(-getDamage());}
     
 }
