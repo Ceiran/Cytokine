@@ -7,6 +7,6 @@ public class Execute {
             if (!game.runTurn()) { break; }
             initial = System.currentTimeMillis();
         }
-        System.out.println("ggez");
+        System.out.println("TERMINATE GAME"); // End condition reached, patient is dead or pathogen is destroyed.
     }
 }

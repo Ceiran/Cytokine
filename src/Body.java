@@ -52,22 +52,21 @@ public class Body {
         return changeGlobalHP(0, true);
     }
 
-    public void addReserveCell(ImmuneCell cell) { reserves.add(cell); }
-
-    public void runCombat() {
+    public boolean runCombat() {
         for (Organ organ : organList) {
-            for (ImmuneCell immune : organ.getCellList()) {
+            for (ImmuneCell immune : organ.getImmuneCellList()) {
                 immune.attack(organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())));
             }
-            if (organ.getCellList().size() > organ.getPathogenList().size()) {
-                for (int i = 0; i < organ.getCellList().size() - organ.getPathogenList().size(); i++) {
-                    organ.getCellList().get((int) (Math.random() * organ.getCellList().size())).healOrgan(organ);
+            if (organ.getImmuneCellList().size() > organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getImmuneCellList().size() - organ.getPathogenList().size(); i++) {
+                    organ.getImmuneCellList().get((int) (Math.random() * organ.getImmuneCellList().size())).healOrgan(organ);
                 }
-            } else if (organ.getCellList().size() < organ.getPathogenList().size()) {
-                for (int i = 0; i < organ.getPathogenList().size() - organ.getCellList().size(); i++) {
+            } else if (organ.getImmuneCellList().size() < organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getPathogenList().size() - organ.getImmuneCellList().size(); i++) {
                     organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())).damageOrgan(organ);
                 }
             }
         }
+        return changeGlobalHP(0, true);
     }
 }
