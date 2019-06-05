@@ -10,8 +10,5 @@ public abstract class Pathogen extends Cell{
     public void attack(Cell target) {target.changeHealth(-getDamage(), true); }
     public void attack(Organ target){target.changeHealth(-getDamage());}
 
-    public static int duplicate(){
-        // DOESNT WORK YET
-        return 1;
-    }
+
 }
