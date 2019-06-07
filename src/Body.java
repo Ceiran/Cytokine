@@ -24,7 +24,7 @@ public class Body {
     public Organ[] getOrganList() { return organList; }
     public List<ImmuneCell> getReserves() { return reserves; }
 
-    // Return false if patient is dead.
+    // Return false if patient is dead. Core game-over check.
     public boolean changeGlobalHP(int delta, boolean flat) {
         if (flat) {
             globalHP += delta;
@@ -67,6 +67,6 @@ public class Body {
                 }
             }
         }
-        return changeGlobalHP(0, true);
+        return changeGlobalHP(0, true); // Check game-over.
     }
 }

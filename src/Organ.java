@@ -33,8 +33,12 @@ public abstract class Organ {
     public List<ImmuneCell> getImmuneCellList() { return immuneCellList; }
     public List<Pathogen> getPathogenList() { return pathogenList; }
 
-    public void changeHealth(double delta) {
-        currentHealth += delta;
+    public void changeHealth(double delta, boolean flat) {
+        if (flat) {
+            currentHealth += delta;
+        } else {
+            currentHealth *= (1 + delta);
+        }
         if (currentHealth < 0) {
             currentHealth = 0;
         } else if (currentHealth > maxHealth) {
