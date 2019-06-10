@@ -69,4 +69,14 @@ public class Body {
         }
         return changeGlobalHP(0, true); // Check game-over.
     }
+
+    /*
+    public boolean deploy(Organ target, Cell c) {
+        if (target.getCurrentCapacity() < target.getCapacity()) {
+            target.getImmuneCellList().add(c)
+            return true;
+        }
+        return false;
+    }
+    */
 }
