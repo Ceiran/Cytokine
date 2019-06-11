@@ -3,42 +3,42 @@ import java.util.List;
 
 public abstract class Organ {
     // maxCapacity dictates amount of cells that can be deployed at one time on the organ.
-    private int currentCapacity, maxCapacity, currentHealth, maxHealth;
+    private int capacity, currentHealth, maxHealth;
     // Determines pathogen progression path (lowest -> highest).
     private final int priority;
     // Determines damage reduction from pathogens.
     private double resistance;
     private String name;
-    private List<ImmuneCell> cellList = new ArrayList<>();
+    private List<ImmuneCell> immuneCellList = new ArrayList<>();
     private List<Pathogen> pathogenList = new ArrayList<>();
+
+    // Determines constant damage to body from collapse penalties.
+    public static double penalty = 0;
 
     public Organ(int health, int capacity, double resistance, int priority, String name) {
         this.priority = priority;
         this.currentHealth = health;
         this.maxHealth = health;
-        this.maxCapacity = capacity;
-        currentCapacity = 0;
+        this.capacity = capacity;
         this.resistance = resistance;
         this.name = name;
     }
 
-    public int getMaxCapacity() { return maxCapacity; }
-    public int getCurrentCapacity() { return currentCapacity; }
+    public int getCapacity() { return capacity; }
+    public int getCurrentCapacity() { return immuneCellList.size() + pathogenList.size(); }
     public int getPriority() { return priority; }
     public double getResistance() { return resistance; }
     public double getOrganPercentHealth() { return Math.round(((double)currentHealth / maxHealth) * 100.0) / 100.0; }
     public String getName() { return name; }
-    public List<ImmuneCell> getCellList() { return cellList; }
+    public List<ImmuneCell> getImmuneCellList() { return immuneCellList; }
     public List<Pathogen> getPathogenList() { return pathogenList; }
 
-    public boolean changeCapacity(int delta) {
-        if (delta < 0 && currentCapacity == 0 || delta > 0 && currentCapacity == maxCapacity) { return false; }
-        currentCapacity += delta;
-        return true;
-    }
-
-    public void changeHealth(double delta) {
-        currentHealth += delta;
+    public void changeHealth(double delta, boolean flat) {
+        if (flat) {
+            currentHealth += delta;
+        } else {
+            currentHealth *= (1 + delta);
+        }
         if (currentHealth < 0) {
             currentHealth = 0;
         } else if (currentHealth > maxHealth) {
@@ -53,6 +53,4 @@ public abstract class Organ {
 
     // Applies system-wide debuffs to player once an organ fails.
     public abstract void applyCollapsePenalties(ImmuneSystem system);
-    // Applies damage done by pathogens to organ.
-    public abstract void applyDamage(Pathogen cell);
 }

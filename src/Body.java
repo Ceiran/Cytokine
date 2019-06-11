@@ -24,7 +24,7 @@ public class Body {
     public Organ[] getOrganList() { return organList; }
     public List<ImmuneCell> getReserves() { return reserves; }
 
-    // Return false if patient is dead.
+    // Return false if patient is dead. Core game-over check.
     public boolean changeGlobalHP(int delta, boolean flat) {
         if (flat) {
             globalHP += delta;
@@ -52,22 +52,31 @@ public class Body {
         return changeGlobalHP(0, true);
     }
 
-    public void addReserveCell(ImmuneCell cell) { reserves.add(cell); }
-
-    public void runCombat() {
+    public boolean runCombat() {
         for (Organ organ : organList) {
-            for (ImmuneCell immune : organ.getCellList()) {
+            for (ImmuneCell immune : organ.getImmuneCellList()) {
                 immune.attack(organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())));
             }
-            if (organ.getCellList().size() > organ.getPathogenList().size()) {
-                for (int i = 0; i < organ.getCellList().size() - organ.getPathogenList().size(); i++) {
-                    organ.getCellList().get((int) (Math.random() * organ.getCellList().size())).healOrgan(organ);
+            if (organ.getImmuneCellList().size() > organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getImmuneCellList().size() - organ.getPathogenList().size(); i++) {
+                    organ.getImmuneCellList().get((int) (Math.random() * organ.getImmuneCellList().size())).healOrgan(organ);
                 }
-            } else if (organ.getCellList().size() < organ.getPathogenList().size()) {
-                for (int i = 0; i < organ.getPathogenList().size() - organ.getCellList().size(); i++) {
+            } else if (organ.getImmuneCellList().size() < organ.getPathogenList().size()) {
+                for (int i = 0; i < organ.getPathogenList().size() - organ.getImmuneCellList().size(); i++) {
                     organ.getPathogenList().get((int) (Math.random() * organ.getPathogenList().size())).damageOrgan(organ);
                 }
             }
         }
+        return changeGlobalHP(0, true); // Check game-over.
     }
+
+    /*
+    public boolean deploy(Organ target, Cell c) {
+        if (target.getCurrentCapacity() < target.getCapacity()) {
+            target.getImmuneCellList().add(c)
+            return true;
+        }
+        return false;
+    }
+    */
 }

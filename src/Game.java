@@ -9,13 +9,13 @@ public class Game {
         mainBody = new Body();
         immuneSystem = new ImmuneSystem();
         switch (stageID) {
-            case 0:
+            case 0: // Common Cold
                 mainBody.changeGlobalHP(1000000, true);
                 break;
-            case 1:
+            case 1: // PLACEHOLDER Pathogen
                 mainBody.changeGlobalHP(1000000, true);
                 break;
-            case 2:
+            case 2: // PLACEHOLDER Pathogen
                 mainBody.changeGlobalHP(800000, true);
                 break;
             default:
@@ -26,7 +26,6 @@ public class Game {
     public boolean runTurn() {
         System.out.printf("%02d:%02d:%02d", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
-        mainBody.runCombat();
-        return mainBody.changeGlobalHP(-50000, true);
+        return mainBody.runCombat();
     }
 }
