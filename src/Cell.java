@@ -1,4 +1,4 @@
-public abstract class   Cell {
+public abstract class Cell {
     private int health, maxHealth, damage, recharge;
     private double accuracy;
     private String type;

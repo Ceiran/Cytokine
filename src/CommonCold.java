@@ -1,5 +1,5 @@
 public class CommonCold extends Pathogen {
-    private double  infectionDMG;
+    private double infectionDMG;
     private double duplicationSPD = 1.5;
 
 
