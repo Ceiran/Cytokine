@@ -1,4 +1,12 @@
 public class Stats {
+    // Body Stats
+    public static int globalHPStage0 = 1000000;
+    public static int globalHPStage1 = 1000000;
+    public static int globalHPStage2 = 800000;
+
+    // Cell ImmuneCell Stats
+    public static double immuneCellOrganHealRate = 3.0;
+
     // Cell Macrophage Stats
     public static int macroHealth = 200;
     public static int macroMaxHealth = 200;
@@ -77,7 +85,7 @@ public class Stats {
     public static int bCellAntibodyProduction = 12;
     public static int bCellLifeTurns = 30;
 
-    // Cell ATP Synthase
+    // Cell ATP Synthase Stats
     public static int atpSynthaseHealth = 1;
     public static int atpSynthaseMaxHealth = 1;
     public static int atpSynthaseDamage = 0;
@@ -87,4 +95,64 @@ public class Stats {
     public static String atpSynthaseName = "ATPSynthase";
     public static int atpSynthaseAtpProduction = 2;
     public static int atpSynthaseLifeTurns = 45;
+
+    // Organ Brain Stats
+    public static int brainPriority = 0;
+    public static int brainHealth = 30000;
+    public static int brainMaxHealth = 30000;
+    public static int brainCapacity = 1450;
+    public static double brainResistance = 0.1;
+    public static String brainName = "Brain";
+
+    // Organ Heart Stats
+    public static int heartPriority = 0;
+    public static int heartHealth = 35000;
+    public static int heartMaxHealth = 35000;
+    public static int heartCapacity = 1150;
+    public static double heartResistance = 0.4;
+    public static String heartName = "Heart";
+
+    // Organ Kidneys Stats
+    public static int kidneysPriority = 4;
+    public static int kidneysHealth = 25000;
+    public static int kidneysMaxHealth = 25000;
+    public static int kidneysCapacity = 1800;
+    public static double kidneysResistance = 0.5;
+    public static String kidneysName = "Kidneys";
+
+    // Organ Liver Stats
+    public static int liverPriority = 3;
+    public static int liverHealth = 80000;
+    public static int liverMaxHealth = 80000;
+    public static int liverCapacity = 2000;
+    public static double liverResistance = 0.15;
+    public static String liverName = "Liver";
+
+    // Organ Lungs Stats
+    public static int lungsPriority = 1;
+    public static int lungsHealth = 82000;
+    public static int lungsMaxHealth = 82000;
+    public static int lungsCapacity = 2100;
+    public static double lungsResistance = 0.6;
+    public static String lungsName = "Lungs";
+
+    // Organs Stomach Stats
+    public static int stomachPriority = 2;
+    public static int stomachHealth = 64500;
+    public static int stomachMaxHealth = 64500;
+    public static int stomachCapacity = 1600;
+    public static double stomachResistance = 0.3;
+    public static String stomachName = "Stomach";
+
+    // Cell Pathogen CommonCold Stats
+    public static int commonColdHealth = 60;
+    public static int commonColdMaxHealth = 60;
+    public static int commonColdDamage = 30;
+    public static int commonColdRecharge = 1;
+    public static double commonColdAccuracy = 0.6;
+    public static double commonColdInfectionDamage = 1.5;
+    public static String commonColdName = "CommonCold";
+    public static double commonColdDuplicationSPD = 1.5;
+    public static double commonColdOrganDamageRate = 3.0;
+
 }
