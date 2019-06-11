@@ -15,7 +15,7 @@ public class ATPSynthase extends ImmuneCell {
     }
 
     // This method runs once per turn.
-    public void produceATP() {
-
+    public void produceATP(ImmuneSystem immuneSystem) {
+        immuneSystem.changeTotalATP(atpProduction);
     }
 }
