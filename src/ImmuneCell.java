@@ -14,6 +14,6 @@ public abstract class ImmuneCell extends Cell {
     public String getName() { return name; }
 
     public void healOrgan(Organ org) {
-        org.changeHealth(organHealRate);
+        org.changeHealth(organHealRate, true);
     }
 }
