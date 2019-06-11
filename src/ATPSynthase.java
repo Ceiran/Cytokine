@@ -8,9 +8,14 @@ public class ATPSynthase extends ImmuneCell {
         lifeTurns = 45;
     }
 
-    public int getAtpProduction() { return atpProduction; }
+    public int getATPProduction() { return atpProduction; }
 
     public void attack(Cell target) {
         // ATPSynthase cannot attack.
+    }
+
+    // This method runs once per turn.
+    public void produceATP() {
+
     }
 }
