@@ -26,8 +26,9 @@ public abstract class Cell {
        Flat is true if delta is a flat rate and false if it is a percent change.
        Delta should indicate a percent increase with a positive value.
        Delta should indicate a percent decrease with a negative value.
+       Returns false if Cell is dead.
      */
-    public void changeHealth(double delta, boolean flat) {
+    public boolean changeHealth(double delta, boolean flat) {
         if (flat) {
             health += delta;
         } else {
@@ -35,9 +36,11 @@ public abstract class Cell {
         }
         if (health < 0) {
             health = 0;
+            return false;
         } else if (health > maxHealth) {
             health = maxHealth;
         }
+        return true;
     }
 
     // When max health is increased, health is also increased proportionally.
