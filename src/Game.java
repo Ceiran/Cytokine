@@ -1,6 +1,6 @@
 public class Game {
-    private ImmuneSystem immuneSystem;
-    private Body mainBody;
+    public static ImmuneSystem immuneSystem;
+    public static Body mainBody;
 
     public static int turnNumber = 1;
 

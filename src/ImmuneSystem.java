@@ -17,7 +17,7 @@ public class ImmuneSystem {
     }
 
     public boolean cytokineStorm() {
-        if (totalATP - 100 >= 0){
+        if (totalATP >= 100){
             // int startTurn = getTurnNumber();
             Stats.macroDamage *= 2;
             Stats.neutroDamage *= 2;
