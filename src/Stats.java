@@ -11,7 +11,7 @@ public class Stats {
     public static int macroHealth = 200;
     public static int macroMaxHealth = 200;
     public static int macroDamage = 45;
-    public static int macroRecharge = 3;
+    public static double macroRecharge = 3;
     public static double macroAccuracy = 0.75;
     public static int macroInfectionShield = 120;
     public static String macroName = "Macrophage";
@@ -20,7 +20,7 @@ public class Stats {
     public static int neutroHealth = 95;
     public static int neutroMaxHealth = 95;
     public static int neutroDamage = 110;
-    public static int neutroRecharge = 1;
+    public static double neutroRecharge = 1;
     public static double neutroAccuracy = 0.95;
     public static int neutroInfectionShield = 20;
     public static String neutroName = "Neutrophil";
@@ -29,7 +29,7 @@ public class Stats {
     public static int dendriticHealth = 40;
     public static int dendriticMaxHealth = 40;
     public static int dendriticDamage = 0;
-    public static int dendriticRecharge = 0;
+    public static double dendriticRecharge = 0;
     public static double dendriticAccuracy = 0.0;
     public static int dendriticInfectionShield = 300;
     public static String dendriticName = "Dendritic";
@@ -38,7 +38,7 @@ public class Stats {
     public static int virginTHealth = 50;
     public static int virginTMaxHealth = 50;
     public static int virginTDamage = 0;
-    public static int virginTRecharge =0;
+    public static double virginTRecharge =0;
     public static double virginTAccuracy = 0.0;
     public static int virginTInfectionShield = 0;
     public static String virginTName = "VirginTCell";
@@ -49,7 +49,7 @@ public class Stats {
     public static int helperTHealth = 95;
     public static int helperTMaxHealth = 95;
     public static int helperTDamage = 30;
-    public static int helperTRecharge = 1;
+    public static double helperTRecharge = 1;
     public static double helperTAccuracy = 0.85;
     public static int helperTInfectionShield = 100;
     public static String helperTName = "HelperTCell";
@@ -59,7 +59,7 @@ public class Stats {
     public static int cytoHealth = 95;
     public static int cytoMaxHealth = 95;
     public static int cytoDamage = 30;
-    public static int cytoRecharge = 1;
+    public static double cytoRecharge = 1;
     public static double cytoAccuracy = 0.85;
     public static int cytoInfectionShield = 100;
     public static String cytoName = "CytotoxicTCell";
@@ -68,7 +68,7 @@ public class Stats {
     public static int virginBHealth = 50;
     public static int virginBMaxHealth = 50;
     public static int virginBDamage = 0;
-    public static int virginBRecharge = 0;
+    public static double virginBRecharge = 0;
     public static double virginBAccuracy = 0.0;
     public static int virginBInfectionShield = 0;
     public static String virginBName = "VirginBCell";
@@ -78,7 +78,7 @@ public class Stats {
     public static int bCellHealth = 50;
     public static int bCellMaxHealth = 50;
     public static int bCellDamage = 0;
-    public static int bCellRecharge = 0;
+    public static double bCellRecharge = 0;
     public static double bCellAccuracy = 0.0;
     public static int bCellInfectionShield = 0;
     public static String bCellName = "BCell";
@@ -89,7 +89,7 @@ public class Stats {
     public static int atpSynthaseHealth = 1;
     public static int atpSynthaseMaxHealth = 1;
     public static int atpSynthaseDamage = 0;
-    public static int atpSynthaseRecharge = 0;
+    public static double atpSynthaseRecharge = 0;
     public static double atpSynthaseAccuracy = 0.0;
     public static int atpSynthaseInfectionShield = 0;
     public static String atpSynthaseName = "ATPSynthase";
@@ -148,7 +148,7 @@ public class Stats {
     public static int commonColdHealth = 60;
     public static int commonColdMaxHealth = 60;
     public static int commonColdDamage = 30;
-    public static int commonColdRecharge = 1;
+    public static double commonColdRecharge = 1;
     public static double commonColdAccuracy = 0.6;
     public static double commonColdInfectionDamage = 1.5;
     public static String commonColdName = "CommonCold";
