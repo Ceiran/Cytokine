@@ -18,7 +18,7 @@ public class Stats {
 
     // Cell Neutrophil Stats
     public static int neutroHealth = 95;
-    public static int neutorMaxHealth = 95;
+    public static int neutroMaxHealth = 95;
     public static int neutroDamage = 110;
     public static int neutroRecharge = 1;
     public static double neutroAccuracy = 0.95;
@@ -27,11 +27,11 @@ public class Stats {
 
     // Cell Dendritic Stats
     public static int dendriticHealth = 40;
-    public static int dedriticMaxHealth = 40;
-    public static int dedriticDamage = 0;
+    public static int dendriticMaxHealth = 40;
+    public static int dendriticDamage = 0;
     public static int dendriticRecharge = 0;
     public static double dendriticAccuracy = 0.0;
-    public static int dedriticInfectionShield = 300;
+    public static int dendriticInfectionShield = 300;
     public static String dendriticName = "Dendritic";
 
     // Cell Virgin T-Cell Stats
@@ -66,7 +66,7 @@ public class Stats {
 
     // Cell Virgin B-Cell Stats
     public static int virginBHealth = 50;
-    public static int virignMaxHealth = 50;
+    public static int virginBMaxHealth = 50;
     public static int virginBDamage = 0;
     public static int virginBRecharge = 0;
     public static double virginBAccuracy = 0.0;

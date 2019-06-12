@@ -13,7 +13,16 @@ public abstract class ImmuneCell extends Cell {
     public int getInfectionShield() { return infectionShield; }
     public String getName() { return name; }
 
+    public void changeInfectionShield(double delta, boolean flat) {
+        if (flat) {
+            infectionShield += delta;
+        } else {
+            infectionShield *= (1 + delta);
+        }
+        if (infectionShield < 0) { infectionShield = 0; }
+    }
+
     public void healOrgan(Organ org) {
-        org.changeHealth(organHealRate);
+        org.changeHealth(organHealRate, false);
     }
 }
