@@ -1,5 +1,7 @@
 public abstract class Cell {
-    private int health, maxHealth, damage, recharge;
+    // aliveTime is the number of turns the Cell has been alive after being deployed.
+    // If the Cell is a non-combat Cell, aliveTime tracks the number of turns after being instantiated in reserves.
+    private int health, maxHealth, damage, recharge, aliveTime;
     private double accuracy;
     private String type;
 
@@ -11,6 +13,7 @@ public abstract class Cell {
         this.recharge = recharge;
         this.accuracy = accuracy;
         this.type = type;
+        aliveTime = 0;
     }
 
     public int getHealth() { return health; }
@@ -19,6 +22,7 @@ public abstract class Cell {
     public int getAttackSpeed() { return recharge; }
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
+    public int getAliveTime() { return aliveTime; }
 
     public double calcPercentage() { return Math.round(((double)health / maxHealth) * 100.0) / 100.0; }
 

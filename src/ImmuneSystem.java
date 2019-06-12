@@ -32,7 +32,7 @@ public class ImmuneSystem {
             Stats.cytoHealth = Stats.cytoMaxHealth * 2;
             Stats.virginBHealth = Stats.virginBMaxHealth * 2;
             Stats.bCellHealth = Stats.bCellMaxHealth * 2;
-            for (Organ organ : mainBody.getOrganList()) {
+            for (Organ organ : Game.mainBody.getOrganList()) {
                 for (ImmuneCell immuneCell : organ.getImmuneCellList()) {
                     immuneCell.changeDamage(1, false);
                     immuneCell.changeMaxHealth(1, false);
