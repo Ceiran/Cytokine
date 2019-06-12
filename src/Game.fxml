@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
 <AnchorPane id="GameStart" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
-
+   <children>
+      <Label layoutX="265.0" layoutY="98.0" text="This is Sparta" textFill="#352bff" />
+   </children>
 </AnchorPane>
