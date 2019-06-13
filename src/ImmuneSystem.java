@@ -4,10 +4,12 @@ public class ImmuneSystem {
         if (organ.getCurrentCapacity() < organ.getCapacity()) {
             organ.getImmuneCellList().add(c);
             return true;
-          
-    private int totalATP;
-    public static boolean cytokineOccured;
-    public static int cytokineStartTurn;
+        }
+        return false;
+    }
+        private int totalATP;
+        public static boolean cytokineOccured;
+        public static int cytokineStartTurn;
 
     public ImmuneSystem() {
         cytokineOccured = false;

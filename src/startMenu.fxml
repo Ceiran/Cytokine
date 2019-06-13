@@ -9,8 +9,6 @@
    <children>
       <Accordion layoutX="72.0" layoutY="105.0" />
       <Button fx:id="gameBegin" layoutX="275.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleButton" text="Start Game" />
-      <Button layoutX="284.0" layoutY="200.0" mnemonicParsing="false" text="Tutorial" />
-      <Button layoutX="283.0" layoutY="269.0" mnemonicParsing="false" text="Settings" />
    </children>
    <cursor>
       <Cursor fx:constant="OPEN_HAND" />
