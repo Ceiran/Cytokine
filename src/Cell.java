@@ -19,7 +19,7 @@ public abstract class Cell {
     public int getHealth() { return health; }
     public int getMaxHealth() { return maxHealth; }
     public int getDamage() { return damage; }
-    public int getAttackSpeed() { return recharge; }
+    public int getRecharge() { return recharge; }
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
     public int getAliveTime() { return aliveTime; }
