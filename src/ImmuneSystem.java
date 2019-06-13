@@ -1,11 +1,21 @@
 import java.util.ArrayList;
 
 public class ImmuneSystem {
+    // Returns true if operation is successful. False otherwise.
+    public boolean deploy(Organ organ, ImmuneCell c) {
+        if (organ.getCurrentCapacity() < organ.getCapacity()) {
+            organ.getImmuneCellList().add(c);
+            return true;
+        }
+        return false;
+    }
+          
     private int totalATP;
     public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured, induceFeverOccured;
     public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown, freezeDiseaseOnCoolDown, induceFeverOnCoolDown;
     public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, freezeDiseaseStartTurn, induceFeverStartTurn;
     public static int hormoneBoostEndTurn, freezeDiseaseEndTurn, induceFeverEndTurn;
+
 
     public ImmuneSystem(){
         totalATP = 0;
@@ -217,7 +227,7 @@ public class ImmuneSystem {
                 immuneCell.changeMaxHealth(-0.5, false);
                 immuneCell.changeInfectionShield(-0.5, false);
                 immuneCell.changeAccuracy(-immuneCell.getAccuracy());
-                immuneCell.changeRecharge(-0.5, false);
+                immuneCell.changeRecharge(1, false);
             }
             for (Pathogen pathogen : organ.getPathogenList()) {
                 pathogen.changeDamage(1, false);
@@ -386,6 +396,7 @@ public class ImmuneSystem {
         return false;
     }
 
+
     public void induceFeverPenalty() {
         Stats.commonColdDuplicationSPD = 1.5;
         Stats.commonColdRecharge = 2;
@@ -400,9 +411,5 @@ public class ImmuneSystem {
                 pathogen.changeInfectionDMG(1.5 - pathogen.getDuplicationSPD(), true);
             }
         }
-    }
-
-    public void deploy(){
-
     }
 }

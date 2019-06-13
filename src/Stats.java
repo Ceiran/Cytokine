@@ -1,8 +1,8 @@
 public class Stats {
     // Body Stats
-    public static int globalHPStage0 = 1000000;
-    public static int globalHPStage1 = 1000000;
-    public static int globalHPStage2 = 800000;
+    public static int globalHPLevel0 = 1000000;
+    public static int globalHPLevel1 = 1000000;
+    public static int globalHPLevel2 = 800000;
 
     // Cell Macrophage Stats
     public static int macroHealth = 200;
@@ -165,7 +165,7 @@ public class Stats {
     public static int commonColdDamage = 30;
     public static int commonColdRecharge = 2;
     public static double commonColdAccuracy = 0.6;
-    public static double commonColdInfectionDamage = 1.5;
+    public static int commonColdInfectionDamage = 20;
     public static String commonColdName = "CommonCold";
     public static double commonColdDuplicationSPD = 1.5;
 
