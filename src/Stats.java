@@ -12,7 +12,7 @@ public class Stats {
     public static double macroAccuracy = 0.75;
     public static int macroInfectionShield = 120;
     public static String macroName = "Macrophage";
-    public static int macroOrganHealRate = 3;
+    public static int macroOrganHealRate = 40;
 
     // Cell Neutrophil Stats
     public static int neutroHealth = 95;
@@ -22,7 +22,7 @@ public class Stats {
     public static double neutroAccuracy = 0.95;
     public static int neutroInfectionShield = 20;
     public static String neutroName = "Neutrophil";
-    public static int neutroOrganHealRate = 3;
+    public static int neutroOrganHealRate = 15;
 
     // Cell Dendritic Stats
     public static int dendriticHealth = 40;
@@ -32,7 +32,7 @@ public class Stats {
     public static double dendriticAccuracy = 0.0;
     public static int dendriticInfectionShield = 300;
     public static String dendriticName = "Dendritic";
-    public static int dendriticOrganHealRate = 3;
+    public static int dendriticOrganHealRate = 30;
 
     // Cell Virgin T-Cell Stats
     public static int virginTHealth = 50;
@@ -43,7 +43,7 @@ public class Stats {
     public static int virginTInfectionShield = 0;
     public static String virginTName = "VirginTCell";
     public static int virginTSpawnTime = 25;
-    public static int virginTOrganHealRate = 3;
+    public static int virginTOrganHealRate = 0;
 
     // Cell Helper T-Cell Stats
     // Heal Rate is the percent of max HP healed per turn.
@@ -55,7 +55,7 @@ public class Stats {
     public static int helperTInfectionShield = 100;
     public static String helperTName = "HelperTCell";
     public static double helperTHealRate = 0.15;
-    public static int helperTOrganHealRate = 3;
+    public static int helperTOrganHealRate = 100;
 
     // Cell Cytotoxic T-Cell Stats
     public static int cytoHealth = 95;
@@ -65,7 +65,7 @@ public class Stats {
     public static double cytoAccuracy = 0.85;
     public static int cytoInfectionShield = 100;
     public static String cytoName = "CytotoxicTCell";
-    public static int cytoOrganHealRate = 3;
+    public static int cytoOrganHealRate = 65;
 
     // Cell Virgin B-Cell Stats
     public static int virginBHealth = 50;
@@ -76,6 +76,7 @@ public class Stats {
     public static int virginBInfectionShield = 0;
     public static String virginBName = "VirginBCell";
     public static int virginBSpawnTime = 25;
+    public static int virginBOrganHealRate = 0;
 
     // Cell B-Cell Stats
     public static int bCellHealth = 50;
@@ -87,7 +88,7 @@ public class Stats {
     public static String bCellName = "BCell";
     public static int bCellAntibodyProduction = 12;
     public static int bCellLifeTurns = 30;
-    public static int bCellOrganHealRate = 3;
+    public static int bCellOrganHealRate = 70;
 
     // Cell ATP Synthase Stats
     public static int atpSynthaseHealth = 1;

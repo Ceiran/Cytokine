@@ -91,9 +91,6 @@ public class ImmuneSystem {
                     pathogen.changeDuplicationSPD(1.0001);
                 }
             }
-            while (Game.turnNumber <= cytokineStartTurn + 100) {
-
-            }
         }
         return false;
     }
