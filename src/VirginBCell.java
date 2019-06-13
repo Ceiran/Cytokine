@@ -1,14 +1,11 @@
 public class VirginBCell extends ImmuneCell {
-    private int spawnTime;
 
-    public VirginBCell(int spawn) {
-        super(50, 50, 0, 0, 0, 0, "VirginBCell");
-        spawnTime = spawn;
+    public VirginBCell() {
+        super(Stats.virginBHealth, Stats.virginBMaxHealth, Stats.virginBDamage, Stats.virginBRecharge, Stats.virginBOrganHealRate, Stats.virginBAccuracy, Stats.virginBInfectionShield, Stats.virginBName);
     }
-
-    public int getSpawnTime() { return spawnTime; }
 
     public void attack(Cell target) {
         // VirginBCells cannot attack.
     }
+
 }

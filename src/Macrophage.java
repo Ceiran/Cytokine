@@ -1,6 +1,6 @@
 public class Macrophage extends ImmuneCell {
     public Macrophage() {
-        super(200, 200, 45, 3, 0.75, 120, "Macrophage");
+        super(Stats.macroHealth, Stats.macroMaxHealth, Stats.macroDamage, Stats.macroRecharge, Stats.macroOrganHealRate, Stats.macroAccuracy, Stats.macroInfectionShield, Stats.macroName);
     }
 
     public void attack(Cell target) { target.changeHealth(-getDamage(), true); }

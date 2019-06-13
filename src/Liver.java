@@ -1,5 +1,6 @@
 public class Liver extends Organ {
-    public Liver() { super(80000, 2000, 0.15, 3, "Liver"); }
+    public Liver() {
+        super(Stats.liverHealth, Stats.liverCapacity, Stats.liverResistance, Stats.liverPriority, Stats.liverName); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 

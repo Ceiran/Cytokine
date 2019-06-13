@@ -1,6 +1,6 @@
 public class Dendritic extends ImmuneCell {
     public Dendritic() {
-        super(40, 40, 0, 0, 0, 300, "Dendritic");
+        super(Stats.dendriticHealth, Stats.dendriticMaxHealth, Stats.dendriticDamage, Stats.dendriticRecharge, Stats.dendriticOrganHealRate, Stats.dendriticAccuracy, Stats.dendriticInfectionShield, Stats.dendriticName);
     }
 
     public void attack(Cell target) {

@@ -24,3 +24,6 @@ hs_err_pid*
 
 # IntelliJ Workspace File
 workspace.xml
+
+# IntelliJ Compiled Files
+/out
