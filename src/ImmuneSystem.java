@@ -1,19 +1,23 @@
 public class ImmuneSystem {
     private int totalATP;
-    public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured;
-    public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown;
-    public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, hormoneBoostEndTurn;
+    public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured;
+    public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown, freezeDiseaseOnCoolDown;
+    public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, freezeDiseaseStartTurn;
+    public static int hormoneBoostEndTurn, freezeDiseaseEndTurn;
 
     public ImmuneSystem(){
         cytokineOccured = false;
         regenerateOccured = false;
         hormoneBoostOccured = false;
+        freezeDiseaseOccured = false;
 
         regenerateOnCooldown = false;
         hormoneBoostOnCoolDown = false;
+        freezeDiseaseOnCoolDown = false;
 
         cytokineStartTurn = 0;
         hormoneBoostStartTurn = 0;
+        freezeDiseaseStartTurn = 0;
     }
 
     public int getTotalATP() { return totalATP;}
@@ -279,8 +283,35 @@ public class ImmuneSystem {
         }
     }
 
-    public void freezeDisease() {
+    public boolean freezeDisease() {
+        if (totalATP >= 245 && !freezeDiseaseOnCoolDown) {
+            freezeDiseaseOccured = true;
+            changeTotalATP(-245);
+            freezeDiseaseStartTurn = Game.turnNumber;
+            Stats.commonColdDuplicationSPD = 0;
+            Stats.commonColdDamage = 0;
 
+            for (Organ organ : Game.mainBody.getOrganList()) {
+                for (Pathogen pathogen : organ.getPathogenList()) {
+                    pathogen.changeDuplicationSPD(-pathogen.getDuplicationSPD());
+                    pathogen.changeDamage(-pathogen.getDamage(), true);
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void freezeDiseasePenalty() {
+        Stats.commonColdDuplicationSPD = 1.5;
+        Stats.commonColdDamage = 30;
+
+        for (Organ organ : Game.mainBody.getOrganList()) {
+            for (Pathogen pathogen : organ.getPathogenList()) {
+                pathogen.changeDuplicationSPD(1.5);
+                pathogen.changeDamage(30, true);
+            }
+        }
     }
 
     public void induceFever() {

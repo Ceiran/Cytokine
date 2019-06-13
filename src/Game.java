@@ -26,6 +26,7 @@ public class Game {
     public boolean runTurn() {
         System.out.printf("%02d:%02d:%02d", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
+        // Manages ability penalties and cooldowns.
         if (ImmuneSystem.cytokineOccured && Game.turnNumber == ImmuneSystem.cytokineStartTurn + 100) {
             immuneSystem.cytokinePenalty();
         }
@@ -38,6 +39,13 @@ public class Game {
             ImmuneSystem.hormoneBoostOnCoolDown = true;
         } else if (ImmuneSystem.hormoneBoostOccured && Game.turnNumber == ImmuneSystem.hormoneBoostEndTurn + 60) {
             ImmuneSystem.hormoneBoostOnCoolDown = false;
+        }
+        if (ImmuneSystem.freezeDiseaseOccured && Game.turnNumber == ImmuneSystem.freezeDiseaseStartTurn + 45) {
+            immuneSystem.freezeDiseasePenalty();
+            ImmuneSystem.freezeDiseaseEndTurn = Game.turnNumber;
+            ImmuneSystem.freezeDiseaseOnCoolDown = true;
+        } else if (ImmuneSystem.freezeDiseaseOccured && Game.turnNumber == ImmuneSystem.freezeDiseaseEndTurn + 120) {
+            ImmuneSystem.freezeDiseaseOnCoolDown = false;
         }
         return mainBody.runCombat();
     }
