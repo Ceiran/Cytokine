@@ -21,12 +21,20 @@ public class Execute extends Application{
     }
     public static void executeButBetter(){
         Game game = new Game(0);
-        long initial = System.currentTimeMillis();
-        while (game.runTurn()) {
-            while (Math.abs(initial - System.currentTimeMillis()) < 1000) { /* Hold thread for one second. */ }
-            initial = System.currentTimeMillis();
-        }
-        System.out.println("TERMINATE GAME"); // End condition reached, patient is dead or pathogen is destroyed.
+
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                long initial = System.currentTimeMillis();
+                while (game.runTurn()) {
+                    while (Math.abs(initial - System.currentTimeMillis()) < 1000) { /* Hold thread for one second. */ }
+                    initial = System.currentTimeMillis();
+
+                }
+                System.out.println("TERMINATE GAME"); // End condition reached, patient is dead or pathogen is destroyed.
+            }
+        });
+        thread.start();
+
 
     }
 }
