@@ -1,9 +1,15 @@
 public class ImmuneSystem {
+    // Returns true if operation is successful. False otherwise.
+    public boolean deploy(Organ organ, ImmuneCell c) {
+        if (organ.getCurrentCapacity() < organ.getCapacity()) {
+            organ.getImmuneCellList().add(c);
+            return true;
+          
     private int totalATP;
     public static boolean cytokineOccured;
     public static int cytokineStartTurn;
 
-    public ImmuneSystem(){
+    public ImmuneSystem() {
         cytokineOccured = false;
         cytokineStartTurn = 0;
     }
@@ -155,7 +161,7 @@ public class ImmuneSystem {
                 immuneCell.changeMaxHealth(-0.5, false);
                 immuneCell.changeInfectionShield(-0.5, false);
                 immuneCell.changeAccuracy(-immuneCell.getAccuracy());
-                // immuneCell.changeRecharge();
+                immuneCell.changeRecharge(1, false);
             }
             for (Pathogen pathogen : organ.getPathogenList()) {
                 pathogen.changeDamage(1, false);
@@ -188,11 +194,7 @@ public class ImmuneSystem {
 
     }
 
-    public void synthesize(){
-
-    }
-
-    public void deploy(){
+    public void synthesize() {
 
     }
 }

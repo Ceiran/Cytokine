@@ -52,6 +52,7 @@ public class Body {
         return changeGlobalHP(0, true);
     }
 
+    // Return false if game is over.
     public boolean runCombat() {
         for (Organ organ : organList) {
             for (ImmuneCell immune : organ.getImmuneCellList()) {
@@ -67,16 +68,15 @@ public class Body {
                 }
             }
         }
-        return changeGlobalHP(0, true); // Check game-over.
-    }
 
-    /*
-    public boolean deploy(Organ target, Cell c) {
-        if (target.getCurrentCapacity() < target.getCapacity()) {
-            target.getImmuneCellList().add(c)
-            return true;
+        // Check lose condition.
+        if (!changeGlobalHP(0, true)) { return false; }
+
+        // Check win condition.
+        for (Organ organ : organList) {
+            if (organ.getPathogenList().size() != 0) { return true; }
         }
         return false;
     }
-    */
+
 }

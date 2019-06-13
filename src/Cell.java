@@ -28,8 +28,6 @@ public abstract class Cell {
 
     /* Calculates total health of a cell after a change, delta, is applied.
        Flat is true if delta is a flat rate and false if it is a percent change.
-       Delta should indicate a percent increase with a positive value.
-       Delta should indicate a percent decrease with a negative value.
        Returns false if Cell is dead.
      */
     public boolean changeHealth(double delta, boolean flat) {
