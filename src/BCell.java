@@ -3,7 +3,7 @@ public class BCell extends ImmuneCell {
     private int lifeTurns;
 
     public BCell() {
-        super(Stats.bCellHealth, Stats.bCellMaxHealth, Stats.bCellDamage, Stats.bCellRecharge, Stats.bCellAccuracy, Stats.bCellInfectionShield, Stats.bCellName);
+        super(Stats.bCellHealth, Stats.bCellMaxHealth, Stats.bCellDamage, Stats.bCellRecharge, Stats.bCellOrganHealRate, Stats.bCellAccuracy, Stats.bCellInfectionShield, Stats.bCellName);
         antibodyProduction = Stats.bCellAntibodyProduction;
         lifeTurns = Stats.bCellLifeTurns;
     }
