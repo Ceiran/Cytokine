@@ -17,7 +17,7 @@ public abstract class ImmuneCell extends Cell {
         if (flat) {
             infectionShield += delta;
         } else {
-            infectionShield *= (1 + delta);
+            infectionShield = (int)Math.round(infectionShield * (1 + delta));
         }
         if (infectionShield < 0) { infectionShield = 0; }
     }

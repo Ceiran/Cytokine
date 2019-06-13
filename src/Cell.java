@@ -36,7 +36,7 @@ public abstract class Cell {
         if (flat) {
             health += delta;
         } else {
-            health *= (1 + delta);
+            health = (int)Math.round(health * (1 + delta));
         }
         if (health < 0) {
             health = 0;
@@ -52,7 +52,7 @@ public abstract class Cell {
         if (flat) {
             maxHealth += delta;
         } else {
-            maxHealth *= (1 + delta);
+            maxHealth = (int)Math.round(maxHealth * (1 + delta));
         }
         if (maxHealth < 0) { maxHealth = 0; }
         if (delta > 0) { changeHealth(delta, flat); }
@@ -63,16 +63,16 @@ public abstract class Cell {
         if (flat) {
             damage += delta;
         } else {
-            damage *= (1 + delta);
+            damage = (int)Math.round(damage * (1 + delta));
         }
         if (damage < 0) { damage = 0; }
     }
 
-    public void changeRecharge(int delta, boolean flat) {
+    public void changeRecharge(double delta, boolean flat) {
         if (flat) {
             recharge += delta;
         } else {
-            recharge *= (1 + delta);
+            recharge = (int)Math.round(recharge * (1 + delta));
         }
         if (recharge < 0) { recharge = 0; }
     }
