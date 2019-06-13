@@ -19,15 +19,18 @@ public class Execute extends Application{
     public static void main(String[] args) {
         launch(args);
     }
-    public static void executeButBetter(){
+    public static void initialize(){
         Game game = new Game(0);
-
+        Controller controller = new Controller();
         Thread thread = new Thread(new Runnable() {
             public void run() {
+
                 long initial = System.currentTimeMillis();
+
                 while (game.runTurn()) {
                     while (Math.abs(initial - System.currentTimeMillis()) < 1000) { /* Hold thread for one second. */ }
                     initial = System.currentTimeMillis();
+                    controller.health();
 
                 }
                 System.out.println("TERMINATE GAME"); // End condition reached, patient is dead or pathogen is destroyed.
