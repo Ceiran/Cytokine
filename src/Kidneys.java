@@ -1,5 +1,6 @@
 public class Kidneys extends Organ {
-    public Kidneys() { super(25000, 1800, 0.5, 4, "Kidneys"); }
+    public Kidneys() {
+        super(Stats.kidneysHealth, Stats.kidneysCapacity, Stats.kidneysResistance, Stats.kidneysPriority, Stats.kidneysName); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 
