@@ -7,7 +7,7 @@ public abstract class ImmuneCell extends Cell {
         super(health, maxHealth, damage, recharge, accuracy, "Immune Cell");
         this.infectionShield = infectionShield;
         this.name = name;
-        organHealRate = organHealRate;
+        this.organHealRate = organHealRate;
     }
 
     public int getInfectionShield() { return infectionShield; }
