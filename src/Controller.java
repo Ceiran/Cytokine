@@ -19,7 +19,7 @@ public class Controller {
         window.setScene(scene2);
         window.show();
     }
-    public void health(){
+   @FXML public void health(){
         health.setText("fuck");
     }
 
