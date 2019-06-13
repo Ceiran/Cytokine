@@ -29,6 +29,16 @@ public class Game {
         if (ImmuneSystem.cytokineOccured && Game.turnNumber == ImmuneSystem.cytokineStartTurn + 100) {
             immuneSystem.cytokinePenalty();
         }
+        if (ImmuneSystem.regenerateOccured && Game.turnNumber == ImmuneSystem.regenerateStartTurn + 75) {
+            ImmuneSystem.regenerateOnCooldown = false;
+        }
+        if (ImmuneSystem.hormoneBoostOccured && Game.turnNumber == ImmuneSystem.hormoneBoostStartTurn + 30) {
+            immuneSystem.hormoneBoostPenalty();
+            ImmuneSystem.hormoneBoostEndTurn = Game.turnNumber;
+            ImmuneSystem.hormoneBoostOnCoolDown = true;
+        } else if (ImmuneSystem.hormoneBoostOccured && Game.turnNumber == ImmuneSystem.hormoneBoostEndTurn + 60) {
+            ImmuneSystem.hormoneBoostOnCoolDown = false;
+        }
         return mainBody.runCombat();
     }
 }

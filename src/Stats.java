@@ -8,7 +8,7 @@ public class Stats {
     public static int macroHealth = 200;
     public static int macroMaxHealth = 200;
     public static int macroDamage = 45;
-    public static int macroRecharge = 3;
+    public static int macroRecharge = 4;
     public static double macroAccuracy = 0.75;
     public static int macroInfectionShield = 120;
     public static String macroName = "Macrophage";
@@ -18,7 +18,7 @@ public class Stats {
     public static int neutroHealth = 95;
     public static int neutroMaxHealth = 95;
     public static int neutroDamage = 110;
-    public static int neutroRecharge = 1;
+    public static int neutroRecharge = 5;
     public static double neutroAccuracy = 0.95;
     public static int neutroInfectionShield = 20;
     public static String neutroName = "Neutrophil";
@@ -50,7 +50,7 @@ public class Stats {
     public static int helperTHealth = 95;
     public static int helperTMaxHealth = 95;
     public static int helperTDamage = 30;
-    public static int helperTRecharge = 1;
+    public static int helperTRecharge = 2;
     public static double helperTAccuracy = 0.85;
     public static int helperTInfectionShield = 100;
     public static String helperTName = "HelperTCell";
@@ -61,7 +61,7 @@ public class Stats {
     public static int cytoHealth = 95;
     public static int cytoMaxHealth = 95;
     public static int cytoDamage = 30;
-    public static int cytoRecharge = 1;
+    public static int cytoRecharge = 2;
     public static double cytoAccuracy = 0.85;
     public static int cytoInfectionShield = 100;
     public static String cytoName = "CytotoxicTCell";

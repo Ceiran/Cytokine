@@ -1,11 +1,19 @@
 public class ImmuneSystem {
     private int totalATP;
-    public static boolean cytokineOccured;
-    public static int cytokineStartTurn;
+    public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured;
+    public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown;
+    public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, hormoneBoostEndTurn;
 
     public ImmuneSystem(){
         cytokineOccured = false;
+        regenerateOccured = false;
+        hormoneBoostOccured = false;
+
+        regenerateOnCooldown = false;
+        hormoneBoostOnCoolDown = false;
+
         cytokineStartTurn = 0;
+        hormoneBoostStartTurn = 0;
     }
 
     public int getTotalATP() { return totalATP;}
@@ -20,8 +28,9 @@ public class ImmuneSystem {
     }
 
     public boolean cytokineStorm() {
-        if (totalATP >= 100 && !cytokineOccured){
+        if (totalATP >= 300 && !cytokineOccured){
             cytokineOccured = true;
+            changeTotalATP(-300);
             cytokineStartTurn = Game.turnNumber;
             Stats.macroDamage *= 2;
             Stats.neutroDamage *= 2;
@@ -172,12 +181,102 @@ public class ImmuneSystem {
         }
     }
 
-    public void regenerate() {
-
+    // Returns true if ability was successfully used. False if it failed to be used.
+    public boolean regenerate() {
+        if (totalATP >= 175 && !regenerateOnCooldown) {
+            regenerateOccured = true;
+            changeTotalATP(-175);
+            regenerateStartTurn = Game.turnNumber;
+            Game.mainBody.changeGlobalHP(10000, true);
+            regenerateOnCooldown = true;
+            return true;
+        }
+        return false;
     }
 
-    public void hormoneBoost() {
+    public boolean hormoneBoost() {
+        if (totalATP >= 95 && !hormoneBoostOnCoolDown) {
+            hormoneBoostOccured = true;
+            changeTotalATP((-95));
+            hormoneBoostStartTurn = Game.turnNumber;
+            Stats.macroRecharge -= 2;
+            Stats.neutroRecharge -= 1;
+            Stats.helperTRecharge -= 1;
+            Stats.cytoRecharge -= 1;
 
+            Stats.macroDamage += 15;
+            Stats.neutroDamage += 20;
+            Stats.helperTDamage += 10;
+            Stats.cytoDamage += 5;
+
+            Stats.macroAccuracy += 0.1;
+            Stats.neutroAccuracy +=  0.05;
+            Stats.helperTAccuracy += 0.05;
+            Stats.cytoAccuracy += 0.025;
+
+            for (Organ organ : Game.mainBody.getOrganList()) {
+                for (ImmuneCell immuneCell : organ.getImmuneCellList()) {
+                    if (immuneCell.getName().equals("Macrophage")) {
+                        immuneCell.changeRecharge(-2, true);
+                        immuneCell.changeDamage(15, true);
+                        immuneCell.changeAccuracy(0.1);
+                    } else if (immuneCell.getName().equals("Neutrophil")) {
+                        immuneCell.changeRecharge(-1, true);
+                        immuneCell.changeDamage(20, true);
+                        immuneCell.changeAccuracy(0.05);
+                    } else if (immuneCell.getName().equals("HelperTCell")) {
+                        immuneCell.changeRecharge(-1, true);
+                        immuneCell.changeDamage(10, true);
+                        immuneCell.changeAccuracy(0.05);
+                    } else if (immuneCell.getName().equals("CytotoxicTCell")) {
+                        immuneCell.changeRecharge(-1, true);
+                        immuneCell.changeDamage(5, true);
+                        immuneCell.changeAccuracy(0.025);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void hormoneBoostPenalty() {
+        Stats.macroRecharge += 2;
+        Stats.neutroRecharge += 1;
+        Stats.helperTRecharge += 1;
+        Stats.cytoRecharge += 1;
+
+        Stats.macroDamage -= 15;
+        Stats.neutroDamage -= 20;
+        Stats.helperTDamage -= 10;
+        Stats.cytoDamage -= 5;
+
+        Stats.macroAccuracy -= 0.1;
+        Stats.neutroAccuracy -=  0.05;
+        Stats.helperTAccuracy -= 0.05;
+        Stats.cytoAccuracy -= 0.025;
+
+        for (Organ organ : Game.mainBody.getOrganList()) {
+            for (ImmuneCell immuneCell : organ.getImmuneCellList()) {
+                if (immuneCell.getName().equals("Macrophage")) {
+                    immuneCell.changeRecharge(2, true);
+                    immuneCell.changeDamage(-15, true);
+                    immuneCell.changeAccuracy(-0.1);
+                } else if (immuneCell.getName().equals("Neutrophil")) {
+                    immuneCell.changeRecharge(1, true);
+                    immuneCell.changeDamage(-20, true);
+                    immuneCell.changeAccuracy(-0.05);
+                } else if (immuneCell.getName().equals("HelperTCell")) {
+                    immuneCell.changeRecharge(1, true);
+                    immuneCell.changeDamage(-10, true);
+                    immuneCell.changeAccuracy(-0.05);
+                } else if (immuneCell.getName().equals("CytotoxicTCell")) {
+                    immuneCell.changeRecharge(1, true);
+                    immuneCell.changeDamage(-5, true);
+                    immuneCell.changeAccuracy(-0.025);
+                }
+            }
+        }
     }
 
     public void freezeDisease() {
