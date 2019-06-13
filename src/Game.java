@@ -14,8 +14,8 @@ public class Game {
                 for (int i = 0; i < 70; i++) { mainBody.getReserves().add(new Macrophage()); }
                 for (int i = 0; i < 30; i++) { mainBody.getReserves().add(new Neutrophil()); }
                 for (int i = 0; i < 5; i++) { mainBody.getReserves().add(new Dendritic()); }
-                for (int i = 0; i < 20; i++) { mainBody.getReserves().add(new VirginTCell(0)); }
-                for (int i = 0; i < 7; i++) { mainBody.getReserves().add(new VirginBCell(0)); }
+                for (int i = 0; i < 20; i++) { mainBody.getReserves().add(new VirginTCell()); }
+                for (int i = 0; i < 7; i++) { mainBody.getReserves().add(new VirginBCell()); }
                 for (int i = 0; i < 10; i++) { mainBody.getReserves().add(new ATPSynthase()); }
                 for (int i = 0; i < 250; i++) { mainBody.getOrganList()[2].getPathogenList().add(new CommonCold()); }
                 break;
