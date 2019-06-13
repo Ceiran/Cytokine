@@ -10,7 +10,7 @@ public class Game {
         immuneSystem = new ImmuneSystem();
         switch (stageID) {
             case 0: // Common Cold
-                mainBody.changeGlobalHP(1000000, true);
+                mainBody.changeGlobalHP(Stats.globalHPLevel0, true);
                 for (int i = 0; i < 70; i++) { mainBody.getReserves().add(new Macrophage()); }
                 for (int i = 0; i < 30; i++) { mainBody.getReserves().add(new Neutrophil()); }
                 for (int i = 0; i < 5; i++) { mainBody.getReserves().add(new Dendritic()); }
@@ -20,18 +20,19 @@ public class Game {
                 for (int i = 0; i < 250; i++) { mainBody.getOrganList()[2].getPathogenList().add(new CommonCold()); }
                 break;
             case 1: // PLACEHOLDER Pathogen
-                mainBody.changeGlobalHP(1000000, true);
+                mainBody.changeGlobalHP(Stats.globalHPLevel1, true);
                 break;
             case 2: // PLACEHOLDER Pathogen
-                mainBody.changeGlobalHP(800000, true);
+                mainBody.changeGlobalHP(Stats.globalHPLevel2, true);
                 break;
             default:
                 throw new IllegalArgumentException("Illegal Game ID. Terminating program.");
         }
     }
 
+    // Return false if game is over.
     public boolean runTurn() {
-        System.out.printf("%02d:%02d:%02d", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
+        System.out.printf("%02d:%02d:%02d\n", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
         return mainBody.runCombat();
     }

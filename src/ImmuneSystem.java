@@ -1,8 +1,9 @@
 public class ImmuneSystem {
 
-    public boolean deploy(Organ target, ImmuneCell c) {
-        if (target.getCurrentCapacity() < target.getCapacity()) {
-            target.getImmuneCellList().add(c);
+    // Returns true if operation is successful. False otherwise.
+    public boolean deploy(Organ organ, ImmuneCell c) {
+        if (organ.getCurrentCapacity() < organ.getCapacity()) {
+            organ.getImmuneCellList().add(c);
             return true;
         }
         return false;

@@ -70,9 +70,7 @@ public class Body {
         }
 
         // Check lose condition.
-        if (!changeGlobalHP(0, true)) {
-            return false;
-        }
+        if (!changeGlobalHP(0, true)) { return false; }
 
         // Check win condition.
         for (Organ organ : organList) {
