@@ -1,11 +1,18 @@
-public class Execute {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+
+public class Execute extends Application {
     public static void main(String[] args) {
-        Game game = new Game(0);
-        long initial = System.currentTimeMillis();
-        while (game.runTurn()) {
-            while (Math.abs(initial - System.currentTimeMillis()) < 1000) { /* Hold thread for one second. */ }
-            initial = System.currentTimeMillis();
-        }
-        System.out.println("TERMINATE GAME"); // End condition reached, patient is dead or pathogen is destroyed.
+        Application.launch("ControllerMenu");
+    }
+
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        primaryStage.setTitle("Cytokine");
+        primaryStage.setScene(new Scene(root,800,600));
+        primaryStage.show();
     }
 }

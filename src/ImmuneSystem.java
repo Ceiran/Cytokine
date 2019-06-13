@@ -9,13 +9,12 @@ public class ImmuneSystem {
         }
         return false;
     }
-          
+  
     private int totalATP;
     public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured, induceFeverOccured;
     public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown, freezeDiseaseOnCoolDown, induceFeverOnCoolDown;
     public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, freezeDiseaseStartTurn, induceFeverStartTurn;
     public static int hormoneBoostEndTurn, freezeDiseaseEndTurn, induceFeverEndTurn;
-
 
     public ImmuneSystem(){
         totalATP = 0;

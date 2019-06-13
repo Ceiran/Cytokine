@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerGame">
    <children>
-      <Accordion layoutX="72.0" layoutY="105.0" />
-      <Button fx:id="gameBegin" layoutX="274.0" layoutY="175.0" mnemonicParsing="false" text="Start Game" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Deploy" />
+      <TitledPane fx:id="fxGlobalHP" animated="false" layoutX="13.0" layoutY="14.0" prefHeight="56.0" prefWidth="202.0" text="Global HP">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </TitledPane>
+      <Button fx:id="fxStartButton" layoutX="280.0" layoutY="188.0" mnemonicParsing="false" onAction="#execRun" text="Start" />
    </children>
-   <cursor>
-      <Cursor fx:constant="OPEN_HAND" />
-   </cursor>
 </AnchorPane>
