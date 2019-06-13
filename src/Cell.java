@@ -1,5 +1,7 @@
 public abstract class Cell {
-    private int health, maxHealth, damage, recharge;
+    // aliveTime is the number of turns the Cell has been alive after being deployed.
+    // If the Cell is a non-combat Cell, aliveTime tracks the number of turns after being instantiated in reserves.
+    private int health, maxHealth, damage, recharge, aliveTime;
     private double accuracy;
     private String type;
 
@@ -11,6 +13,7 @@ public abstract class Cell {
         this.recharge = recharge;
         this.accuracy = accuracy;
         this.type = type;
+        aliveTime = 0;
     }
 
     public int getHealth() { return health; }
@@ -19,6 +22,7 @@ public abstract class Cell {
     public int getAttackSpeed() { return recharge; }
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
+    public int getAliveTime() { return aliveTime; }
 
     public double calcPercentage() { return Math.round(((double)health / maxHealth) * 100.0) / 100.0; }
 
@@ -30,7 +34,7 @@ public abstract class Cell {
         if (flat) {
             health += delta;
         } else {
-            health *= (1 + delta);
+            health = (int)Math.round(health * (1 + delta));
         }
         if (health < 0) {
             health = 0;
@@ -46,7 +50,7 @@ public abstract class Cell {
         if (flat) {
             maxHealth += delta;
         } else {
-            maxHealth *= (1 + delta);
+            maxHealth = (int)Math.round(maxHealth * (1 + delta));
         }
         if (maxHealth < 0) { maxHealth = 0; }
         if (delta > 0) { changeHealth(delta, flat); }
@@ -57,7 +61,7 @@ public abstract class Cell {
         if (flat) {
             damage += delta;
         } else {
-            damage *= (1 + delta);
+            damage = (int)Math.round(damage * (1 + delta));
         }
         if (damage < 0) { damage = 0; }
     }
@@ -66,7 +70,7 @@ public abstract class Cell {
         if (flat) {
             recharge += delta;
         } else {
-            recharge *= (1 + delta);
+            recharge = (int)Math.round(recharge * (1 + delta));
         }
         if (recharge < 0) { recharge = 0; }
     }

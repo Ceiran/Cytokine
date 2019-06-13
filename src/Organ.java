@@ -37,7 +37,7 @@ public abstract class Organ {
         if (flat) {
             currentHealth += delta;
         } else {
-            currentHealth *= (1 + delta);
+            currentHealth = (int)Math.round(currentHealth * (1 + delta));
         }
         if (currentHealth < 0) {
             currentHealth = 0;

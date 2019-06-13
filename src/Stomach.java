@@ -1,5 +1,6 @@
 public class Stomach extends Organ {
-    public Stomach() { super(64500, 1600, 0.3, 2, "Stomach"); }
+    public Stomach() {
+        super(Stats.stomachHealth, Stats.stomachCapacity, Stats.stomachResistance, Stats.stomachPriority, Stats.stomachName); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 

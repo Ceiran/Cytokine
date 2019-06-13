@@ -1,6 +1,6 @@
 public class Game {
-    private ImmuneSystem immuneSystem;
-    private Body mainBody;
+    public static ImmuneSystem immuneSystem;
+    public static Body mainBody;
 
     public static int turnNumber = 1;
 
@@ -34,6 +34,9 @@ public class Game {
     public boolean runTurn() {
         System.out.printf("%02d:%02d:%02d\n", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
+        if (ImmuneSystem.cytokineOccured && Game.turnNumber == ImmuneSystem.cytokineStartTurn + 100) {
+            immuneSystem.cytokinePenalty();
+        }
         return mainBody.runCombat();
     }
 }
