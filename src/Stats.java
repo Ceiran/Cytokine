@@ -38,7 +38,7 @@ public class Stats {
     public static int virginTHealth = 50;
     public static int virginTMaxHealth = 50;
     public static int virginTDamage = 0;
-    public static double virginTRecharge =0;
+    public static double virginTRecharge = 0;
     public static double virginTAccuracy = 0.0;
     public static int virginTInfectionShield = 0;
     public static String virginTName = "VirginTCell";
