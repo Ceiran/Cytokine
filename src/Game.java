@@ -39,6 +39,7 @@ public class Game {
             ImmuneSystem.hormoneBoostOnCoolDown = true;
         } else if (ImmuneSystem.hormoneBoostOccured && Game.turnNumber == ImmuneSystem.hormoneBoostEndTurn + 60) {
             ImmuneSystem.hormoneBoostOnCoolDown = false;
+            ImmuneSystem.hormoneBoostOccured = false;
         }
         if (ImmuneSystem.freezeDiseaseOccured && Game.turnNumber == ImmuneSystem.freezeDiseaseStartTurn + 45) {
             immuneSystem.freezeDiseasePenalty();
@@ -46,6 +47,15 @@ public class Game {
             ImmuneSystem.freezeDiseaseOnCoolDown = true;
         } else if (ImmuneSystem.freezeDiseaseOccured && Game.turnNumber == ImmuneSystem.freezeDiseaseEndTurn + 120) {
             ImmuneSystem.freezeDiseaseOnCoolDown = false;
+            ImmuneSystem.freezeDiseaseOccured = false;
+        }
+        if (ImmuneSystem.induceFeverOccured && Game.turnNumber == ImmuneSystem.induceFeverStartTurn + 55) {
+            immuneSystem.induceFeverPenalty();
+            ImmuneSystem.induceFeverEndTurn = Game.turnNumber;
+            ImmuneSystem.induceFeverOnCoolDown = true;
+        } else if (ImmuneSystem.induceFeverOccured && Game.turnNumber == ImmuneSystem.induceFeverEndTurn + 40) {
+            ImmuneSystem.induceFeverOnCoolDown = false;
+            ImmuneSystem.induceFeverOccured = false;
         }
         return mainBody.runCombat();
     }

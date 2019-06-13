@@ -1,23 +1,26 @@
 public class ImmuneSystem {
     private int totalATP;
-    public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured;
-    public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown, freezeDiseaseOnCoolDown;
-    public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, freezeDiseaseStartTurn;
-    public static int hormoneBoostEndTurn, freezeDiseaseEndTurn;
+    public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured, induceFeverOccured;
+    public static boolean regenerateOnCooldown, hormoneBoostOnCoolDown, freezeDiseaseOnCoolDown, induceFeverOnCoolDown;
+    public static int cytokineStartTurn, regenerateStartTurn, hormoneBoostStartTurn, freezeDiseaseStartTurn, induceFeverStartTurn;
+    public static int hormoneBoostEndTurn, freezeDiseaseEndTurn, induceFeverEndTurn;
 
     public ImmuneSystem(){
         cytokineOccured = false;
         regenerateOccured = false;
         hormoneBoostOccured = false;
         freezeDiseaseOccured = false;
+        induceFeverOccured = false;
 
         regenerateOnCooldown = false;
         hormoneBoostOnCoolDown = false;
         freezeDiseaseOnCoolDown = false;
+        induceFeverOnCoolDown = false;
 
         cytokineStartTurn = 0;
         hormoneBoostStartTurn = 0;
         freezeDiseaseStartTurn = 0;
+        induceFeverStartTurn = 0;
     }
 
     public int getTotalATP() { return totalATP;}
@@ -168,7 +171,7 @@ public class ImmuneSystem {
                 immuneCell.changeMaxHealth(-0.5, false);
                 immuneCell.changeInfectionShield(-0.5, false);
                 immuneCell.changeAccuracy(-immuneCell.getAccuracy());
-                // immuneCell.changeRecharge();
+                immuneCell.changeRecharge(-0.5, false);
             }
             for (Pathogen pathogen : organ.getPathogenList()) {
                 pathogen.changeDamage(1, false);
@@ -314,8 +317,43 @@ public class ImmuneSystem {
         }
     }
 
-    public void induceFever() {
+    public boolean induceFever() {
+        if (totalATP >= 80 && !induceFeverOnCoolDown) {
+            induceFeverOccured = true;
+            changeTotalATP(-80);
+            induceFeverStartTurn = Game.turnNumber;
+            Stats.commonColdDuplicationSPD = 0.75;
+            Stats.commonColdRecharge = 3;
+            Stats.commonColdDamage = 20;
+            Stats.commonColdInfectionDamage = 1.25;
 
+            for (Organ organ : Game.mainBody.getOrganList()) {
+                for (Pathogen pathogen : organ.getPathogenList()) {
+                    pathogen.changeDuplicationSPD(-(pathogen.getDuplicationSPD() - 0.75));
+                    pathogen.changeRecharge(3 - pathogen.getRecharge(), true);
+                    pathogen.changeDamage(-(pathogen.getDamage() - 20), true);
+                    pathogen.changeInfectionDMG(-(pathogen.getDuplicationSPD() - 1.25), true);
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void induceFeverPenalty() {
+        Stats.commonColdDuplicationSPD = 1.5;
+        Stats.commonColdRecharge = 2;
+        Stats.commonColdDamage = 30;
+        Stats.commonColdInfectionDamage = 1.5;
+
+        for (Organ organ : Game.mainBody.getOrganList()) {
+            for (Pathogen pathogen : organ.getPathogenList()) {
+                pathogen.changeDuplicationSPD(1.5 - pathogen.getDuplicationSPD());
+                pathogen.changeRecharge(-(pathogen.getRecharge() - 2), true);
+                pathogen.changeDamage(30 - pathogen.getDamage(), true);
+                pathogen.changeInfectionDMG(1.5 - pathogen.getDuplicationSPD(), true);
+            }
+        }
     }
 
     public void synthesize(){

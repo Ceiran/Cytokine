@@ -154,7 +154,7 @@ public class Stats {
     public static int commonColdHealth = 60;
     public static int commonColdMaxHealth = 60;
     public static int commonColdDamage = 30;
-    public static int commonColdRecharge = 1;
+    public static int commonColdRecharge = 2;
     public static double commonColdAccuracy = 0.6;
     public static double commonColdInfectionDamage = 1.5;
     public static String commonColdName = "CommonCold";
