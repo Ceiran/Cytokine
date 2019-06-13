@@ -1,18 +1,16 @@
 public abstract class Pathogen extends Cell {
-    private double infectionDMG, duplicationSPD;
+    private double duplicationSPD;
+    private int infectionDMG;
     private String name;
-    private double duplicationSPD, infectionDMG;
 
-    public Pathogen(int health, int maxHealth, int damage, int recharge, double accuracy, double infectionDMG, double duplicationSPD, String name) {
+    public Pathogen(int health, int maxHealth, int damage, int recharge, double accuracy, int infectionDMG, double duplicationSPD, String name) {
         super(health, maxHealth, damage, recharge, accuracy, "Pathogen");
         this.infectionDMG = infectionDMG;
         this.duplicationSPD = duplicationSPD;
         this.name = name;
-        this.duplicationSPD = duplicationSPD;
-        this.infectionDMG = infectionDMG;
     }
 
-    public double getInfectionDMG() { return infectionDMG; }
+    public int getInfectionDMG() { return infectionDMG; }
     public double getDuplicationSPD() { return duplicationSPD; }
     public String getName() { return name; }
   
@@ -20,7 +18,7 @@ public abstract class Pathogen extends Cell {
         if (flat) {
             infectionDMG += delta;
         } else {
-            infectionDMG *= (1 + delta);
+            infectionDMG = (int)Math.round(infectionDMG * (1 + delta));
         }
         if (infectionDMG < 0) { infectionDMG = 0; }
     }
