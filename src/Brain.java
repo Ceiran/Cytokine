@@ -1,5 +1,6 @@
 public class Brain extends Organ {
-    public Brain() { super(30000, 1450, 0.1, 0, "Brain"); }
+    public Brain() {
+        super(Stats.brainHealth, Stats.brainCapacity, Stats.brainResistance, Stats.brainPriority, Stats.brainName); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 

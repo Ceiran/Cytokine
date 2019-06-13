@@ -2,7 +2,7 @@ public abstract class Pathogen extends Cell {
     private double infectionDMG, duplicationSPD;
     private String name;
 
-    public Pathogen(int health, int maxHealth, int damage, double recharge, double accuracy, double infectionDMG, double duplicationSPD, String name) {
+    public Pathogen(int health, int maxHealth, int damage, int recharge, double accuracy, double infectionDMG, double duplicationSPD, String name) {
         super(health, maxHealth, damage, recharge, accuracy, "Pathogen");
         this.infectionDMG = infectionDMG;
         this.duplicationSPD = duplicationSPD;

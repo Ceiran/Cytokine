@@ -1,12 +1,12 @@
 public abstract class Cell {
     // aliveTime is the number of turns the Cell has been alive after being deployed.
     // If the Cell is a non-combat Cell, aliveTime tracks the number of turns after being instantiated in reserves.
-    private int health, maxHealth, damage, aliveTime;
-    private double recharge, accuracy;
+    private int health, maxHealth, damage, recharge, aliveTime;
+    private double accuracy;
     private String type;
 
     // The instance variable type defines whether the Cell is an immuneCell or Pathogen.
-    public Cell(int health, int maxHealth, int damage, double recharge, double accuracy, String type) {
+    public Cell(int health, int maxHealth, int damage, int recharge, double accuracy, String type) {
         this.health = health;
         this.maxHealth = maxHealth;
         this.damage = damage;
@@ -19,7 +19,7 @@ public abstract class Cell {
     public int getHealth() { return health; }
     public int getMaxHealth() { return maxHealth; }
     public int getDamage() { return damage; }
-    public double getAttackSpeed() { return recharge; }
+    public int getAttackSpeed() { return recharge; }
     public double getAccuracy() { return accuracy; }
     public String getType() { return type; }
     public int getAliveTime() { return aliveTime; }
@@ -68,7 +68,7 @@ public abstract class Cell {
         if (damage < 0) { damage = 0; }
     }
 
-    public void changeRecharge(double delta, boolean flat) {
+    public void changeRecharge(int delta, boolean flat) {
         if (flat) {
             recharge += delta;
         } else {

@@ -1,13 +1,13 @@
 public abstract class ImmuneCell extends Cell {
     private int infectionShield;
-    private double organHealRate;
+    private int organHealRate;
     private String name;
 
-    public ImmuneCell(int health, int maxHealth, int damage, double recharge, double accuracy, int infectionShield, String name) {
+    public ImmuneCell(int health, int maxHealth, int damage, int recharge, double accuracy, int infectionShield, String name) {
         super(health, maxHealth, damage, recharge, accuracy, "Immune Cell");
         this.infectionShield = infectionShield;
         this.name = name;
-        organHealRate = 3;
+        organHealRate = Stats.immuneCellOrganHealRate;
     }
 
     public int getInfectionShield() { return infectionShield; }
@@ -23,6 +23,6 @@ public abstract class ImmuneCell extends Cell {
     }
 
     public void healOrgan(Organ org) {
-        org.changeHealth(organHealRate, false);
+        org.changeHealth(organHealRate, true);
     }
 }

@@ -1,5 +1,6 @@
 public class Lungs extends Organ {
-    public Lungs() { super(82000, 2100, 0.6, 1, "Lungs"); }
+    public Lungs() {
+        super(Stats.lungsHealth, Stats.lungsCapacity, Stats.lungsResistance, Stats.lungsPriority, Stats.lungsName); }
 
     public void applyCollapsePenalties(ImmuneSystem system) {
 
