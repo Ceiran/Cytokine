@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerGame">
    <children>
-      <Label fx:id="health" layoutX="26.0" layoutY="29.0" prefHeight="29.0" prefWidth="61.0" />
-      <Button layoutX="87.0" layoutY="288.0" mnemonicParsing="false" text="Deploy" />
-      <Label fx:id="health" layoutX="464.0" layoutY="286.0" prefHeight="29.0" prefWidth="61.0" text="Organ HP" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Deploy" />
+      <TitledPane fx:id="fxGlobalHP" animated="false" layoutX="13.0" layoutY="14.0" prefHeight="56.0" prefWidth="202.0" text="Global HP">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </TitledPane>
+      <Button fx:id="fxStartButton" layoutX="280.0" layoutY="188.0" mnemonicParsing="false" onAction="#execRun" text="Start" />
    </children>
 </AnchorPane>
