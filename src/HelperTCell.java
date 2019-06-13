@@ -1,8 +1,8 @@
 public class HelperTCell extends ImmuneCell {
     private double healRate;
     
-    public HelperTCell() {
-        super(Stats.helperTHealth, Stats.helperTMaxHealth, Stats.helperTDamage, Stats.helperTRecharge, Stats.helperTOrganHealRate, Stats.helperTAccuracy, Stats.helperTInfectionShield, Stats.helperTName);
+    public HelperTCell(String destination) {
+        super(Stats.helperTHealth, Stats.helperTMaxHealth, Stats.helperTDamage, Stats.helperTRecharge, Stats.helperTOrganHealRate, Stats.helperTAccuracy, Stats.helperTInfectionShield, destination, Stats.helperTName);
         healRate = Stats.helperTHealRate;
     }
 

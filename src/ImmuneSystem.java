@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ImmuneSystem {
     private int totalATP;
     public static boolean cytokineOccured, regenerateOccured, hormoneBoostOccured, freezeDiseaseOccured, induceFeverOccured;
@@ -6,6 +8,7 @@ public class ImmuneSystem {
     public static int hormoneBoostEndTurn, freezeDiseaseEndTurn, induceFeverEndTurn;
 
     public ImmuneSystem(){
+        totalATP = 0;
         cytokineOccured = false;
         regenerateOccured = false;
         hormoneBoostOccured = false;
@@ -32,6 +35,49 @@ public class ImmuneSystem {
             return false;
         }
         return true;
+    }
+
+    // VirginTCell, VirginBCell, BCell, and ATPSynthase must have targetOrgan input of "".
+    public boolean synthesize(String name, String targetOrgan) {
+        switch (name) {
+            case "Macrophage":
+                ImmuneCell macro = new Macrophage(targetOrgan);
+                Game.mainBody.getReserves().add(macro);
+                break;
+            case "Neutrophil":
+                ImmuneCell neutro = new Neutrophil(targetOrgan);
+                Game.mainBody.getReserves().add(neutro);
+                break;
+            case "Dendritic":
+                ImmuneCell dendritic = new Dendritic(targetOrgan);
+                Game.mainBody.getReserves().add(dendritic);
+                break;
+            case "VirginTCell":
+                ImmuneCell virginT = new VirginTCell(targetOrgan);
+                Game.mainBody.getReserves().add(virginT);
+                break;
+            case "HelperTCell":
+                ImmuneCell helperT = new HelperTCell(targetOrgan);
+                Game.mainBody.getReserves().add(helperT);
+                break;
+            case "CytotoxicTCell":
+                ImmuneCell cyto = new CytotoxicTCell(targetOrgan);
+                Game.mainBody.getReserves().add(cyto);
+                break;
+            case "VirginBCell":
+                ImmuneCell virginB = new VirginBCell(targetOrgan);
+                Game.mainBody.getReserves().add(virginB);
+                break;
+            case "BCell":
+                ImmuneCell bCell = new BCell(targetOrgan);
+                Game.mainBody.getReserves().add(bCell);
+                break;
+            case "ATPSynthase":
+                ImmuneCell atpSynthase = new ATPSynthase(targetOrgan);
+                Game.mainBody.getReserves().add(atpSynthase);
+                break;
+        }
+        return false;
     }
 
     public boolean cytokineStorm() {
@@ -354,10 +400,6 @@ public class ImmuneSystem {
                 pathogen.changeInfectionDMG(1.5 - pathogen.getDuplicationSPD(), true);
             }
         }
-    }
-
-    public void synthesize(){
-
     }
 
     public void deploy(){

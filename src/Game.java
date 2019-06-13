@@ -26,6 +26,31 @@ public class Game {
     public boolean runTurn() {
         System.out.printf("%02d:%02d:%02d", turnNumber / 3600, (turnNumber / 60) % 60, turnNumber % 60);
         turnNumber++;
+        // Manages spawn times and deployment of ImmuneCells.
+        for (ImmuneCell immuneCell : mainBody.getReserves()) {
+            if (immuneCell.getTargetTime() == Game.turnNumber) {
+                switch (immuneCell.getDestination()) {
+                    case "Brain":
+                        immuneSystem.deploy(mainBody.getOrganList()[0], immuneCell);
+                        break;
+                    case "Heart":
+                        immuneSystem.deploy(mainBody.getOrganList()[1], immuneCell);
+                        break;
+                    case "Lungs":
+                        immuneSystem.deploy(mainBody.getOrganList()[2], immuneCell);
+                        break;
+                    case "Stomach":
+                        immuneSystem.deploy(mainBody.getOrganList()[3], immuneCell);
+                        break;
+                    case "Liver":
+                        immuneSystem.deploy(mainBody.getOrganList()[4], immuneCell);
+                        break;
+                    case "Kidneys":
+                        immuneSystem.deploy(mainBody.getOrganList()[5], immuneCell);
+                        break;
+                }
+            }
+        }
         // Manages ability penalties and cooldowns.
         if (ImmuneSystem.cytokineOccured && Game.turnNumber == ImmuneSystem.cytokineStartTurn + 100) {
             immuneSystem.cytokinePenalty();
