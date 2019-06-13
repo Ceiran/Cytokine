@@ -1,6 +1,6 @@
 public class CytotoxicTCell extends ImmuneCell {
-    public CytotoxicTCell() {
-        super(Stats.cytoHealth, Stats.cytoMaxHealth, Stats.cytoDamage, Stats.cytoRecharge, Stats.cytoOrganHealRate, Stats.cytoAccuracy, Stats.cytoInfectionShield, Stats.cytoName);
+    public CytotoxicTCell(String destination) {
+        super(Stats.cytoHealth, Stats.cytoMaxHealth, Stats.cytoDamage, Stats.cytoRecharge, Stats.cytoOrganHealRate, Stats.cytoAccuracy, Stats.cytoInfectionShield, destination, Stats.cytoName);
     }
 
     public void attack(Cell target) {

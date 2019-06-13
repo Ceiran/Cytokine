@@ -1,8 +1,8 @@
 public class ATPSynthase extends ImmuneCell {
     private int atpProduction, lifeTurns;
 
-    public ATPSynthase() {
-        super(Stats.atpSynthaseHealth, Stats.atpSynthaseMaxHealth, Stats.atpSynthaseDamage, Stats.atpSynthaseRecharge, Stats.atpSynthaseOrganHealRate, Stats.atpSynthaseAccuracy, Stats.atpSynthaseInfectionShield, Stats.atpSynthaseName);
+    public ATPSynthase(String destination) {
+        super(Stats.atpSynthaseHealth, Stats.atpSynthaseMaxHealth, Stats.atpSynthaseDamage, Stats.atpSynthaseRecharge, Stats.atpSynthaseOrganHealRate, Stats.atpSynthaseAccuracy, Stats.atpSynthaseInfectionShield, destination, Stats.atpSynthaseName);
         atpProduction = Stats.atpSynthaseAtpProduction;
         lifeTurns = Stats.atpSynthaseLifeTurns;
     }
